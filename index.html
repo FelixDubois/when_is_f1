@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Upcoming Formula 1 events with local times and calendar export.">
+  <title>When Is F1</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='4' fill='%23e10600'/%3E%3Ctext x='12' y='17' text-anchor='middle' font-family='monospace' font-weight='700' font-size='14' fill='white'%3EF1%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      var stored = null;
+      try { stored = localStorage.getItem('wif:theme'); } catch (e) {}
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', stored || (prefersDark ? 'dark' : 'light'));
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="./">
+        <span class="brand__mark" aria-hidden="true">F1</span>
+        <span class="brand__name">When Is F1</span>
+      </a>
+      <button id="theme-toggle" class="icon-button" type="button" aria-label="Switch to dark theme">
+        <svg class="icon icon--sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" fill="currentColor"/>
+          <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="12" y1="2"  x2="12" y2="5"/>
+            <line x1="12" y1="19" x2="12" y2="22"/>
+            <line x1="2"  y1="12" x2="5"  y2="12"/>
+            <line x1="19" y1="12" x2="22" y2="12"/>
+            <line x1="4.2"  y1="4.2"  x2="6.3"  y2="6.3"/>
+            <line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/>
+            <line x1="4.2"  y1="19.8" x2="6.3"  y2="17.7"/>
+            <line x1="17.7" y1="6.3"  x2="19.8" y2="4.2"/>
+          </g>
+        </svg>
+        <svg class="icon icon--moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="picker" aria-label="Your location">
+      <div class="picker__field">
+        <span class="picker__label" id="country-label">Country</span>
+        <div class="combobox" id="country-picker">
+          <button type="button" class="combobox__toggle"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                  aria-labelledby="country-label country-current">
+            <img class="combobox__flag" id="country-flag" alt="" src="" width="28" height="21">
+            <span class="combobox__current" id="country-current">—</span>
+            <svg class="combobox__caret" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+              <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/>
+            </svg>
+          </button>
+          <div class="combobox__popover" id="country-popover" hidden>
+            <input type="search" class="combobox__search" id="country-search"
+                   placeholder="Search countries…" aria-label="Search countries"
+                   aria-controls="country-listbox" autocomplete="off" spellcheck="false">
+            <ul class="combobox__list" id="country-listbox" role="listbox" aria-label="Countries"></ul>
+            <p class="combobox__empty" id="country-empty" hidden>No matches.</p>
+          </div>
+        </div>
+      </div>
+      <div class="picker__field" id="zone-field" hidden>
+        <label for="zone" class="picker__label">Timezone</label>
+        <select id="zone"></select>
+      </div>
+      <p class="picker__hint" id="picker-hint" aria-live="polite"></p>
+    </section>
+
+    <section id="events" aria-label="Upcoming F1 events">
+      <p class="status" id="status">Loading season schedule…</p>
+    </section>
+
+    <p class="ios-note" id="ios-note" hidden>
+      iOS users: tap <strong>Add to Google Calendar</strong>. <code>.ics</code> downloads are not reliable on iOS Safari.
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        Data: <a href="https://api.jolpi.ca/" target="_blank" rel="noopener">Jolpica F1</a>
+        · Track maps: Wikimedia Commons (<a href="ATTRIBUTION.md">credits</a>)
+        · Country/timezone data: <a href="https://github.com/manuelmhtr/countries-and-timezones" target="_blank" rel="noopener">countries-and-timezones</a> (MIT)
+      </p>
+    </div>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
