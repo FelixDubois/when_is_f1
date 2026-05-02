@@ -113,15 +113,20 @@ body {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 12px;
+  align-items: flex-end;
 }
 
 .picker__field {
   display: grid;
   gap: 6px;
   position: relative;
+  flex: 1 1 240px;
+  min-width: 0;
 }
+.picker__field--format { flex: 0 0 auto; min-width: 160px; }
 .picker__label,
 .picker__field label {
   font-size: 12px;
@@ -279,14 +284,41 @@ body {
   margin: 0;
   font-size: 13px;
   color: var(--fg-muted);
+  flex: 1 1 100%;
 }
 
-@media (min-width: 600px) {
-  .picker {
-    grid-template-columns: 1fr 1fr;
-    align-items: end;
-  }
-  .picker__hint { grid-column: 1 / -1; }
+/* ---------- Segmented control ---------- */
+.segmented {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  overflow: hidden;
+  min-height: 44px;
+}
+.segmented__option {
+  flex: 1 1 0;
+  font: inherit;
+  padding: 8px 14px;
+  background: transparent;
+  color: var(--fg-muted);
+  border: 0;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: .5px;
+  transition: background-color .15s ease, color .15s ease;
+}
+.segmented__option + .segmented__option {
+  border-left: 1px solid var(--border);
+}
+.segmented__option:hover { color: var(--fg); }
+.segmented__option[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+.segmented__option:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
 }
 
 /* ---------- Status ---------- */

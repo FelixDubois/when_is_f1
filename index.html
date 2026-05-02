@@ -79,6 +79,13 @@
           </div>
         </div>
       </div>
+      <div class="picker__field picker__field--format">
+        <span class="picker__label" id="format-label">Time format</span>
+        <div class="segmented" role="group" aria-labelledby="format-label" id="format-toggle">
+          <button type="button" class="segmented__option" data-value="24" aria-pressed="true">24h</button>
+          <button type="button" class="segmented__option" data-value="12" aria-pressed="false">12h</button>
+        </div>
+      </div>
       <div class="picker__field" id="zone-field" hidden>
         <label for="zone" class="picker__label">Timezone</label>
         <select id="zone"></select>

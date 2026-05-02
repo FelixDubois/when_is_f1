@@ -9,6 +9,7 @@ import { COUNTRY_TIMEZONES, TZ_PRIMARY_COUNTRY } from './data/country-timezones.
 
 const STORAGE_COUNTRY = 'wif:country';
 const STORAGE_ZONE = 'wif:tz';
+const STORAGE_FORMAT = 'wif:format';
 const IS_IOS = detectIOS();
 
 const SESSION_DURATIONS_MIN = {
@@ -21,6 +22,7 @@ const state = {
   schedule: null,
   countryCode: null,
   zone: null,
+  hour12: false,
 };
 
 const els = {
@@ -34,6 +36,7 @@ const els = {
   countryEmpty: document.getElementById('country-empty'),
   zone: document.getElementById('zone'),
   zoneField: document.getElementById('zone-field'),
+  formatToggle: document.getElementById('format-toggle'),
   hint: document.getElementById('picker-hint'),
   events: document.getElementById('events'),
   status: document.getElementById('status'),
@@ -124,7 +127,21 @@ function persist() {
   try {
     localStorage.setItem(STORAGE_COUNTRY, state.countryCode);
     localStorage.setItem(STORAGE_ZONE, state.zone);
+    localStorage.setItem(STORAGE_FORMAT, state.hour12 ? '12' : '24');
   } catch {}
+}
+
+function loadFormatPref() {
+  try {
+    return localStorage.getItem(STORAGE_FORMAT) === '12';
+  } catch { return false; }
+}
+
+function syncFormatToggle() {
+  const value = state.hour12 ? '12' : '24';
+  for (const btn of els.formatToggle.querySelectorAll('.segmented__option')) {
+    btn.setAttribute('aria-pressed', btn.dataset.value === value ? 'true' : 'false');
+  }
 }
 
 // ---------- Rendering ----------
@@ -137,8 +154,9 @@ function showStatus(msg, isError = false) {
 }
 
 function renderSessionRow(table, session, race) {
-  const local = formatInZone(session.start, race.circuit.tz);
-  const user = formatInZone(session.start, state.zone);
+  const opts = { hour12: state.hour12 };
+  const local = formatInZone(session.start, race.circuit.tz, opts);
+  const user = formatInZone(session.start, state.zone, opts);
 
   const tr = document.createElement('tr');
   if (session.kind === 'race') tr.className = 'is-race';
@@ -168,8 +186,9 @@ function renderSessionRow(table, session, race) {
 }
 
 function renderSessionMobile(container, session, race) {
-  const local = formatInZone(session.start, race.circuit.tz);
-  const user = formatInZone(session.start, state.zone);
+  const opts = { hour12: state.hour12 };
+  const local = formatInZone(session.start, race.circuit.tz, opts);
+  const user = formatInZone(session.start, state.zone, opts);
 
   const card = document.createElement('div');
   card.className = 'session-card' + (session.kind === 'race' ? ' is-race' : '');
@@ -383,9 +402,22 @@ async function init() {
   const initial = detectInitial();
   state.countryCode = initial.countryCode;
   state.zone = initial.zone;
+  state.hour12 = loadFormatPref();
   buildCountryCombobox(state.countryCode);
   syncZonePicker();
+  syncFormatToggle();
   updateHint();
+
+  els.formatToggle.addEventListener('click', (e) => {
+    const btn = e.target.closest('.segmented__option');
+    if (!btn) return;
+    const next = btn.dataset.value === '12';
+    if (next === state.hour12) return;
+    state.hour12 = next;
+    syncFormatToggle();
+    persist();
+    renderEvents();
+  });
 
   els.zone.addEventListener('change', () => {
     state.zone = els.zone.value;
