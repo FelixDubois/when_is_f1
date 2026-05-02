@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/icons/social.png" alt="When Is F1" width="100%">
+</p>
+
 # When Is F1
 
 A small static site that shows upcoming Formula 1 sessions in your local time and lets you add them to your calendar.
