@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Maskable: full bleed, important content kept inside the inner 80% safe area (centered 410x410). -->
+  <rect width="512" height="512" fill="#e10600"/>
+  <text x="256" y="312" text-anchor="middle"
+        font-family="'Space Mono', ui-monospace, Menlo, monospace"
+        font-weight="700" font-size="180" fill="#ffffff"
+        letter-spacing="-6">F1</text>
+</svg>

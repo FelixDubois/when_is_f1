@@ -7,6 +7,7 @@ A small static site that shows upcoming Formula 1 sessions in your local time an
 - Each session is shown both in the circuit's local time and in yours.
 - One-click add to Google Calendar, or download an `.ics` for the race or the full weekend.
 - Light / dark theme, responsive layout, no build step.
+- Installable as a PWA — works offline after the first visit, looks like a native app on Android / iOS once added to the home screen.
 
 ## Run locally
 
@@ -19,6 +20,19 @@ python -m http.server 8000
 Then open http://localhost:8000.
 
 Opening `index.html` directly via `file://` will not work — the app uses ES modules and `fetch`, both of which require an HTTP origin.
+
+## Install as an Android / iOS app
+
+The site is a PWA. To install it on your phone:
+
+1. Host it over HTTPS. The simplest option is GitHub Pages — in the repo settings, **Settings → Pages → Source: deploy from branch → `main` / `(root)`**. The site will be served at `https://<user>.github.io/when_is_f1/`.
+2. Open that URL in Chrome (Android) or Safari (iOS).
+3. **Android**: Chrome will prompt "Install app", or use the menu → "Install app" / "Add to Home Screen". The app appears with its own icon and runs full-screen.
+4. **iOS**: Share menu → "Add to Home Screen". Same outcome.
+
+A service worker (`sw.js`) precaches the app shell and stores the schedule response, so the app works offline after the first visit.
+
+If you later want a real APK in the Play Store, wrap this same hosted PWA with [Bubblewrap](https://github.com/GoogleChromeLabs/bubblewrap) (Trusted Web Activity).
 
 ## Stack
 
