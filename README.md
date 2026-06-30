@@ -9,9 +9,19 @@ A small static site that shows upcoming Formula 1 sessions in your local time an
 - See every session of every remaining round of the current season.
 - Pick your country (searchable, with flag icons) — times convert automatically.
 - Each session is shown both in the circuit's local time and in yours.
-- One-click add to Google Calendar, or download an `.ics` for the race or the full weekend.
-- Light / dark theme, responsive layout, no build step.
-- Installable as a PWA — works offline after the first visit, looks like a native app on Android / iOS once added to the home screen.
+- **Pinned "next session" hero** with a live countdown, and a **LIVE** badge when a session is running.
+- **Bilingual UI (English / French)** with a language switch; session labels, dates and number formats follow the chosen language.
+- **Championship standings** (drivers + constructors), **last-race result** (podium, pole, fastest lap), and **title math** ("still in contention / can clinch this round").
+- **Circuit facts** (length, laps, lap record) and a **race-weekend weather forecast** (Open-Meteo) per round.
+- **Recent winners** at each circuit, loaded on demand.
+- **Live timing** during a session (leaderboard, gaps, track status flag, track weather, team radio) via OpenF1 — degrades gracefully when nothing is live.
+- Search/filter rounds, **favorites** (pin to top + filter), **follow a driver or team**, **race-only vs full-weekend** view, and a **season selector** (past seasons too).
+- One-click add to Google Calendar, or download an `.ics` for the race or the full weekend — with **calendar reminders (VALARM)** baked in and a configurable default.
+- **Reminders** via the Notification API (Notification Triggers where supported, with a tab-open fallback).
+- **Shareable deep links** (`?round=N`), URL-encoded state, and an **embeddable mode** (`?embed=1`).
+- Light / dark theme, responsive layout, accessible (skip link, keyboard, `prefers-reduced-motion`, `forced-colors`, RTL-ready), no build step.
+- Installable as a PWA — works offline after the first visit, with an "update available" prompt instead of a silent swap.
+- An **auto-updating calendar feed** (`season.ics`) regenerated daily by CI (see `.github/workflows/season-ics.yml`).
 
 ## Run locally
 
@@ -74,3 +84,6 @@ ATTRIBUTION.md
 
 - iOS Safari does not reliably download `.ics` files from Blob URLs, so on iOS the `.ics` option is hidden and only the Google Calendar link is shown. Working around this would need a server.
 - Madring (Madrid, round 14 of 2026) does not have a track-layout SVG on Wikimedia Commons yet — the card shows a "Map coming soon" placeholder.
+- **Reminders** are static-only. Where the browser supports Notification Triggers (Chromium) they fire even with the tab closed; otherwise they fire only while the tab is open. **True Web Push** (server-sent, browser fully closed) is intentionally out of scope — it requires VAPID keys, a push server and a subscription store. The auto-updating `season.ics` calendar feed is the recommended "set & forget" alternative.
+- **Live timing** (OpenF1) and **weather** (Open-Meteo) are fetched live and never cached by the service worker, so they degrade to a quiet "unavailable" line when offline or off-session.
+- The auto-updating `season.ics` is the one feature that needs CI (a scheduled GitHub Action) — the app runtime itself stays fully static.

@@ -1,0 +1,37 @@
+name: Update season.ics
+
+on:
+  schedule:
+    - cron: '0 5 * * *'   # daily at 05:00 UTC
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/build-season-ics.mjs'
+      - 'lib/ics.js'
+      - 'lib/sessions.js'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build season.ics
+        run: node scripts/build-season-ics.mjs
+      - name: Commit if changed
+        run: |
+          if [ -n "$(git status --porcelain season.ics)" ]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add season.ics
+            git commit -m "chore: refresh season.ics"
+            git push
+          else
+            echo "season.ics unchanged."
+          fi

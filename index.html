@@ -20,45 +20,64 @@
   <link rel="stylesheet" href="styles.css">
   <script>
     (function () {
-      var stored = null;
+      var stored = null, lang = null;
       try { stored = localStorage.getItem('wif:theme'); } catch (e) {}
+      try { lang = localStorage.getItem('wif:lang'); } catch (e) {}
       var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
       document.documentElement.setAttribute('data-theme', stored || (prefersDark ? 'dark' : 'light'));
+      var nav = (navigator.language || 'en').slice(0, 2).toLowerCase();
+      document.documentElement.setAttribute('lang', lang || (nav === 'fr' ? 'fr' : 'en'));
     })();
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#events" data-i18n="a11y.skip">Skip to schedule</a>
+
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="brand" href="./">
         <span class="brand__mark" aria-hidden="true">F1</span>
         <span class="brand__name">When Is F1</span>
       </a>
-      <button id="theme-toggle" class="icon-button" type="button" aria-label="Switch to dark theme">
-        <svg class="icon icon--sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-          <circle cx="12" cy="12" r="4" fill="currentColor"/>
-          <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <line x1="12" y1="2"  x2="12" y2="5"/>
-            <line x1="12" y1="19" x2="12" y2="22"/>
-            <line x1="2"  y1="12" x2="5"  y2="12"/>
-            <line x1="19" y1="12" x2="22" y2="12"/>
-            <line x1="4.2"  y1="4.2"  x2="6.3"  y2="6.3"/>
-            <line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/>
-            <line x1="4.2"  y1="19.8" x2="6.3"  y2="17.7"/>
-            <line x1="17.7" y1="6.3"  x2="19.8" y2="4.2"/>
-          </g>
-        </svg>
-        <svg class="icon icon--moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-          <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/>
-        </svg>
-      </button>
+      <div class="site-header__tools">
+        <div class="segmented segmented--lang" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.language" id="lang-toggle">
+          <button type="button" class="segmented__option" data-value="en" aria-pressed="true">EN</button>
+          <button type="button" class="segmented__option" data-value="fr" aria-pressed="false">FR</button>
+        </div>
+        <button id="settings-btn" class="icon-button" type="button" aria-label="Settings" data-i18n-attr="aria-label:nav.settings">
+          <svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/>
+          </svg>
+        </button>
+        <button id="theme-toggle" class="icon-button" type="button" aria-label="Switch to dark theme">
+          <svg class="icon icon--sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" fill="currentColor"/>
+            <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="12" y1="2"  x2="12" y2="5"/>
+              <line x1="12" y1="19" x2="12" y2="22"/>
+              <line x1="2"  y1="12" x2="5"  y2="12"/>
+              <line x1="19" y1="12" x2="22" y2="12"/>
+              <line x1="4.2"  y1="4.2"  x2="6.3"  y2="6.3"/>
+              <line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/>
+              <line x1="4.2"  y1="19.8" x2="6.3"  y2="17.7"/>
+              <line x1="17.7" y1="6.3"  x2="19.8" y2="4.2"/>
+            </g>
+          </svg>
+          <svg class="icon icon--moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 
   <main class="container">
+    <section id="hero" class="hero" aria-live="polite" hidden></section>
+
     <section class="picker" aria-label="Your location">
       <div class="picker__field">
-        <span class="picker__label" id="country-label">Country</span>
+        <span class="picker__label" id="country-label" data-i18n="picker.country">Country</span>
         <div class="combobox" id="country-picker">
           <button type="button" class="combobox__toggle"
                   aria-haspopup="listbox"
@@ -72,33 +91,84 @@
           </button>
           <div class="combobox__popover" id="country-popover" hidden>
             <input type="search" class="combobox__search" id="country-search"
-                   placeholder="Search countries…" aria-label="Search countries"
-                   aria-controls="country-listbox" autocomplete="off" spellcheck="false">
+                   placeholder="Search countries…" data-i18n-attr="placeholder:picker.countrySearch;aria-label:picker.countrySearch"
+                   aria-label="Search countries" aria-controls="country-listbox" autocomplete="off" spellcheck="false">
             <ul class="combobox__list" id="country-listbox" role="listbox" aria-label="Countries"></ul>
-            <p class="combobox__empty" id="country-empty" hidden>No matches.</p>
+            <p class="combobox__empty" id="country-empty" data-i18n="picker.noMatches" hidden>No matches.</p>
           </div>
         </div>
       </div>
+
       <div class="picker__field picker__field--format">
-        <span class="picker__label" id="format-label">Time format</span>
+        <span class="picker__label" id="format-label" data-i18n="picker.timeFormat">Time format</span>
         <div class="segmented" role="group" aria-labelledby="format-label" id="format-toggle">
-          <button type="button" class="segmented__option" data-value="24" aria-pressed="true">24h</button>
-          <button type="button" class="segmented__option" data-value="12" aria-pressed="false">12h</button>
+          <button type="button" class="segmented__option" data-value="24" aria-pressed="true" data-i18n="format.24h">24h</button>
+          <button type="button" class="segmented__option" data-value="12" aria-pressed="false" data-i18n="format.12h">12h</button>
         </div>
       </div>
+
       <div class="picker__field" id="zone-field" hidden>
-        <label for="zone" class="picker__label">Timezone</label>
+        <label for="zone" class="picker__label" data-i18n="picker.timezone">Timezone</label>
         <select id="zone"></select>
       </div>
+
+      <div class="picker__field picker__field--season">
+        <label for="season" class="picker__label" data-i18n="picker.season">Season</label>
+        <select id="season"></select>
+      </div>
+
       <p class="picker__hint" id="picker-hint" aria-live="polite"></p>
     </section>
 
-    <section id="events" aria-label="Upcoming F1 events">
-      <p class="status" id="status">Loading season schedule…</p>
+    <div class="controls">
+      <div class="controls__search">
+        <label for="search" class="sr-only" data-i18n="picker.search">Search</label>
+        <input type="search" id="search" class="controls__search-input"
+               placeholder="Search a Grand Prix, circuit or country…"
+               data-i18n-attr="placeholder:picker.searchPlaceholder;aria-label:picker.search"
+               autocomplete="off" spellcheck="false">
+      </div>
+      <div class="segmented" role="group" aria-label="Show" data-i18n-attr="aria-label:view.label" id="view-toggle">
+        <button type="button" class="segmented__option" data-value="all" aria-pressed="true" data-i18n="view.all">All sessions</button>
+        <button type="button" class="segmented__option" data-value="race" aria-pressed="false" data-i18n="view.race">Race only</button>
+      </div>
+      <button type="button" id="fav-filter" class="chip-toggle" aria-pressed="false">
+        <span aria-hidden="true">★</span> <span data-i18n="favorites.only">Favorites only</span>
+      </button>
+    </div>
+
+    <p class="meta-bar" id="meta-bar" aria-live="polite" hidden></p>
+
+    <p class="title-banner" id="title-banner" hidden></p>
+
+    <section class="panel" id="standings-panel" aria-label="Championship standings" hidden>
+      <button type="button" class="panel__toggle" id="standings-toggle" aria-expanded="false">
+        <span data-i18n="standings.show">Show standings</span>
+        <svg class="panel__caret" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="panel__body" id="standings-body" hidden>
+        <div class="segmented" role="group" id="standings-tabs">
+          <button type="button" class="segmented__option" data-value="drivers" aria-pressed="true" data-i18n="standings.drivers">Drivers</button>
+          <button type="button" class="segmented__option" data-value="constructors" aria-pressed="false" data-i18n="standings.constructors">Constructors</button>
+        </div>
+        <div id="standings-content"></div>
+      </div>
     </section>
 
-    <p class="ios-note" id="ios-note" hidden>
-      iOS users: tap <strong>Add to Google Calendar</strong>. <code>.ics</code> downloads are not reliable on iOS Safari.
+    <section class="panel" id="last-panel" aria-label="Last race result" hidden>
+      <button type="button" class="panel__toggle" id="last-toggle" aria-expanded="false">
+        <span data-i18n="last.show">Show last result</span>
+        <svg class="panel__caret" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="panel__body" id="last-body" hidden></div>
+    </section>
+
+    <section id="events" aria-label="Upcoming F1 events" tabindex="-1">
+      <p class="status" id="status" data-i18n="status.loading">Loading season schedule…</p>
+    </section>
+
+    <p class="ios-note" id="ios-note" data-i18n="ios.note" hidden>
+      iOS users: tap Add to Google Calendar. .ics downloads are not reliable on iOS Safari.
     </p>
   </main>
 
@@ -106,11 +176,45 @@
     <div class="container">
       <p>
         Data: <a href="https://api.jolpi.ca/" target="_blank" rel="noopener">Jolpica F1</a>
+        · <a href="https://api.openf1.org/" target="_blank" rel="noopener">OpenF1</a>
+        · <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>
         · Track maps: Wikimedia Commons (<a href="ATTRIBUTION.md">credits</a>)
-        · Country/timezone data: <a href="https://github.com/manuelmhtr/countries-and-timezones" target="_blank" rel="noopener">countries-and-timezones</a> (MIT)
       </p>
     </div>
   </footer>
+
+  <dialog id="settings-dialog" class="dialog">
+    <form method="dialog" class="dialog__inner">
+      <div class="dialog__head">
+        <h2 class="dialog__title" data-i18n="settings.title">Settings</h2>
+        <button value="close" class="icon-button" aria-label="Close" data-i18n-attr="aria-label:settings.close">✕</button>
+      </div>
+      <div class="dialog__field">
+        <span class="picker__label" data-i18n="settings.theme">Theme</span>
+        <div class="segmented" role="group" id="settings-theme">
+          <button type="button" class="segmented__option" data-value="light" data-i18n="settings.themeLight">Light</button>
+          <button type="button" class="segmented__option" data-value="dark" data-i18n="settings.themeDark">Dark</button>
+        </div>
+      </div>
+      <div class="dialog__field">
+        <span class="picker__label" data-i18n="settings.defaultView">Default view</span>
+        <div class="segmented" role="group" id="settings-view">
+          <button type="button" class="segmented__option" data-value="all" data-i18n="view.all">All sessions</button>
+          <button type="button" class="segmented__option" data-value="race" data-i18n="view.race">Race only</button>
+        </div>
+      </div>
+      <div class="dialog__field">
+        <label class="picker__label" for="settings-reminder" data-i18n="reminder.label">Default reminder</label>
+        <select id="settings-reminder">
+          <option value="" data-i18n="reminder.none">None</option>
+          <option value="0" data-i18n="reminder.atStart">At start</option>
+          <option value="10" data-i18n="reminder.10m">10 min before</option>
+          <option value="60" data-i18n="reminder.1h">1 h before</option>
+          <option value="1440" data-i18n="reminder.1d">1 day before</option>
+        </select>
+      </div>
+    </form>
+  </dialog>
 
   <script type="module" src="app.js"></script>
   <script>

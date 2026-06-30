@@ -1,0 +1,1216 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//when-is-f1//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-1-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260306T013000Z
+DTEND:20260306T030000Z
+SUMMARY:F1 Practice 1 — Australian Grand Prix
+LOCATION:Albert Park Grand Prix Circuit\, Melbourne\, Australia
+DESCRIPTION:Australian Grand Prix Practice 1 @ Albert Park Grand Prix Circu
+ it.\nhttps://en.wikipedia.org/wiki/2026_Australian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-1-fp2@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260306T050000Z
+DTEND:20260306T063000Z
+SUMMARY:F1 Practice 2 — Australian Grand Prix
+LOCATION:Albert Park Grand Prix Circuit\, Melbourne\, Australia
+DESCRIPTION:Australian Grand Prix Practice 2 @ Albert Park Grand Prix Circu
+ it.\nhttps://en.wikipedia.org/wiki/2026_Australian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-1-fp3@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260307T013000Z
+DTEND:20260307T023000Z
+SUMMARY:F1 Practice 3 — Australian Grand Prix
+LOCATION:Albert Park Grand Prix Circuit\, Melbourne\, Australia
+DESCRIPTION:Australian Grand Prix Practice 3 @ Albert Park Grand Prix Circu
+ it.\nhttps://en.wikipedia.org/wiki/2026_Australian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-1-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260307T050000Z
+DTEND:20260307T060000Z
+SUMMARY:F1 Qualifying — Australian Grand Prix
+LOCATION:Albert Park Grand Prix Circuit\, Melbourne\, Australia
+DESCRIPTION:Australian Grand Prix Qualifying @ Albert Park Grand Prix Circu
+ it.\nhttps://en.wikipedia.org/wiki/2026_Australian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-1-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260308T040000Z
+DTEND:20260308T060000Z
+SUMMARY:F1 Race — Australian Grand Prix
+LOCATION:Albert Park Grand Prix Circuit\, Melbourne\, Australia
+DESCRIPTION:Australian Grand Prix Race @ Albert Park Grand Prix Circuit.\nh
+ ttps://en.wikipedia.org/wiki/2026_Australian_Grand_Prix
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — Australian Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-2-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260313T033000Z
+DTEND:20260313T050000Z
+SUMMARY:F1 Practice 1 — Chinese Grand Prix
+LOCATION:Shanghai International Circuit\, Shanghai\, China
+DESCRIPTION:Chinese Grand Prix Practice 1 @ Shanghai International Circuit.
+ \nhttps://en.wikipedia.org/wiki/2026_Chinese_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-2-sprintQ@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260313T073000Z
+DTEND:20260313T083000Z
+SUMMARY:F1 Sprint Qualifying — Chinese Grand Prix
+LOCATION:Shanghai International Circuit\, Shanghai\, China
+DESCRIPTION:Chinese Grand Prix Sprint Qualifying @ Shanghai International C
+ ircuit.\nhttps://en.wikipedia.org/wiki/2026_Chinese_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-2-sprint@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260314T030000Z
+DTEND:20260314T040000Z
+SUMMARY:F1 Sprint — Chinese Grand Prix
+LOCATION:Shanghai International Circuit\, Shanghai\, China
+DESCRIPTION:Chinese Grand Prix Sprint @ Shanghai International Circuit.\nht
+ tps://en.wikipedia.org/wiki/2026_Chinese_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-2-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260314T070000Z
+DTEND:20260314T080000Z
+SUMMARY:F1 Qualifying — Chinese Grand Prix
+LOCATION:Shanghai International Circuit\, Shanghai\, China
+DESCRIPTION:Chinese Grand Prix Qualifying @ Shanghai International Circuit.
+ \nhttps://en.wikipedia.org/wiki/2026_Chinese_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-2-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260315T070000Z
+DTEND:20260315T090000Z
+SUMMARY:F1 Race — Chinese Grand Prix
+LOCATION:Shanghai International Circuit\, Shanghai\, China
+DESCRIPTION:Chinese Grand Prix Race @ Shanghai International Circuit.\nhttp
+ s://en.wikipedia.org/wiki/2026_Chinese_Grand_Prix
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — Chinese Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-3-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260327T023000Z
+DTEND:20260327T040000Z
+SUMMARY:F1 Practice 1 — Japanese Grand Prix
+LOCATION:Suzuka Circuit\, Suzuka\, Japan
+DESCRIPTION:Japanese Grand Prix Practice 1 @ Suzuka Circuit.\nhttps://en.wi
+ kipedia.org/wiki/2026_Japanese_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-3-fp2@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260327T060000Z
+DTEND:20260327T073000Z
+SUMMARY:F1 Practice 2 — Japanese Grand Prix
+LOCATION:Suzuka Circuit\, Suzuka\, Japan
+DESCRIPTION:Japanese Grand Prix Practice 2 @ Suzuka Circuit.\nhttps://en.wi
+ kipedia.org/wiki/2026_Japanese_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-3-fp3@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260328T023000Z
+DTEND:20260328T033000Z
+SUMMARY:F1 Practice 3 — Japanese Grand Prix
+LOCATION:Suzuka Circuit\, Suzuka\, Japan
+DESCRIPTION:Japanese Grand Prix Practice 3 @ Suzuka Circuit.\nhttps://en.wi
+ kipedia.org/wiki/2026_Japanese_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-3-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260328T060000Z
+DTEND:20260328T070000Z
+SUMMARY:F1 Qualifying — Japanese Grand Prix
+LOCATION:Suzuka Circuit\, Suzuka\, Japan
+DESCRIPTION:Japanese Grand Prix Qualifying @ Suzuka Circuit.\nhttps://en.wi
+ kipedia.org/wiki/2026_Japanese_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-3-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260329T050000Z
+DTEND:20260329T070000Z
+SUMMARY:F1 Race — Japanese Grand Prix
+LOCATION:Suzuka Circuit\, Suzuka\, Japan
+DESCRIPTION:Japanese Grand Prix Race @ Suzuka Circuit.\nhttps://en.wikipedi
+ a.org/wiki/2026_Japanese_Grand_Prix
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — Japanese Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-4-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260501T160000Z
+DTEND:20260501T173000Z
+SUMMARY:F1 Practice 1 — Miami Grand Prix
+LOCATION:Miami International Autodrome\, Miami\, USA
+DESCRIPTION:Miami Grand Prix Practice 1 @ Miami International Autodrome.\nh
+ ttps://en.wikipedia.org/wiki/2026_Miami_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-4-sprintQ@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260501T203000Z
+DTEND:20260501T213000Z
+SUMMARY:F1 Sprint Qualifying — Miami Grand Prix
+LOCATION:Miami International Autodrome\, Miami\, USA
+DESCRIPTION:Miami Grand Prix Sprint Qualifying @ Miami International Autodr
+ ome.\nhttps://en.wikipedia.org/wiki/2026_Miami_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-4-sprint@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260502T160000Z
+DTEND:20260502T170000Z
+SUMMARY:F1 Sprint — Miami Grand Prix
+LOCATION:Miami International Autodrome\, Miami\, USA
+DESCRIPTION:Miami Grand Prix Sprint @ Miami International Autodrome.\nhttps
+ ://en.wikipedia.org/wiki/2026_Miami_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-4-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260502T200000Z
+DTEND:20260502T210000Z
+SUMMARY:F1 Qualifying — Miami Grand Prix
+LOCATION:Miami International Autodrome\, Miami\, USA
+DESCRIPTION:Miami Grand Prix Qualifying @ Miami International Autodrome.\nh
+ ttps://en.wikipedia.org/wiki/2026_Miami_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-4-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260503T200000Z
+DTEND:20260503T220000Z
+SUMMARY:F1 Race — Miami Grand Prix
+LOCATION:Miami International Autodrome\, Miami\, USA
+DESCRIPTION:Miami Grand Prix Race @ Miami International Autodrome.\nhttps:/
+ /en.wikipedia.org/wiki/2026_Miami_Grand_Prix
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — Miami Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-5-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260522T163000Z
+DTEND:20260522T180000Z
+SUMMARY:F1 Practice 1 — Canadian Grand Prix
+LOCATION:Circuit Gilles Villeneuve\, Montreal\, Canada
+DESCRIPTION:Canadian Grand Prix Practice 1 @ Circuit Gilles Villeneuve.\nht
+ tps://en.wikipedia.org/wiki/2026_Canadian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-5-sprintQ@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260522T203000Z
+DTEND:20260522T213000Z
+SUMMARY:F1 Sprint Qualifying — Canadian Grand Prix
+LOCATION:Circuit Gilles Villeneuve\, Montreal\, Canada
+DESCRIPTION:Canadian Grand Prix Sprint Qualifying @ Circuit Gilles Villeneu
+ ve.\nhttps://en.wikipedia.org/wiki/2026_Canadian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-5-sprint@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260523T160000Z
+DTEND:20260523T170000Z
+SUMMARY:F1 Sprint — Canadian Grand Prix
+LOCATION:Circuit Gilles Villeneuve\, Montreal\, Canada
+DESCRIPTION:Canadian Grand Prix Sprint @ Circuit Gilles Villeneuve.\nhttps:
+ //en.wikipedia.org/wiki/2026_Canadian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-5-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260523T200000Z
+DTEND:20260523T210000Z
+SUMMARY:F1 Qualifying — Canadian Grand Prix
+LOCATION:Circuit Gilles Villeneuve\, Montreal\, Canada
+DESCRIPTION:Canadian Grand Prix Qualifying @ Circuit Gilles Villeneuve.\nht
+ tps://en.wikipedia.org/wiki/2026_Canadian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-5-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260524T200000Z
+DTEND:20260524T220000Z
+SUMMARY:F1 Race — Canadian Grand Prix
+LOCATION:Circuit Gilles Villeneuve\, Montreal\, Canada
+DESCRIPTION:Canadian Grand Prix Race @ Circuit Gilles Villeneuve.\nhttps://
+ en.wikipedia.org/wiki/2026_Canadian_Grand_Prix
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — Canadian Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-6-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260605T113000Z
+DTEND:20260605T130000Z
+SUMMARY:F1 Practice 1 — Monaco Grand Prix
+LOCATION:Circuit de Monaco\, Monte Carlo\, Monaco
+DESCRIPTION:Monaco Grand Prix Practice 1 @ Circuit de Monaco.\nhttps://en.w
+ ikipedia.org/wiki/2026_Monaco_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-6-fp2@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260605T150000Z
+DTEND:20260605T163000Z
+SUMMARY:F1 Practice 2 — Monaco Grand Prix
+LOCATION:Circuit de Monaco\, Monte Carlo\, Monaco
+DESCRIPTION:Monaco Grand Prix Practice 2 @ Circuit de Monaco.\nhttps://en.w
+ ikipedia.org/wiki/2026_Monaco_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-6-fp3@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260606T103000Z
+DTEND:20260606T113000Z
+SUMMARY:F1 Practice 3 — Monaco Grand Prix
+LOCATION:Circuit de Monaco\, Monte Carlo\, Monaco
+DESCRIPTION:Monaco Grand Prix Practice 3 @ Circuit de Monaco.\nhttps://en.w
+ ikipedia.org/wiki/2026_Monaco_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-6-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260606T140000Z
+DTEND:20260606T150000Z
+SUMMARY:F1 Qualifying — Monaco Grand Prix
+LOCATION:Circuit de Monaco\, Monte Carlo\, Monaco
+DESCRIPTION:Monaco Grand Prix Qualifying @ Circuit de Monaco.\nhttps://en.w
+ ikipedia.org/wiki/2026_Monaco_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-6-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260607T130000Z
+DTEND:20260607T150000Z
+SUMMARY:F1 Race — Monaco Grand Prix
+LOCATION:Circuit de Monaco\, Monte Carlo\, Monaco
+DESCRIPTION:Monaco Grand Prix Race @ Circuit de Monaco.\nhttps://en.wikiped
+ ia.org/wiki/2026_Monaco_Grand_Prix
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — Monaco Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-7-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260612T113000Z
+DTEND:20260612T130000Z
+SUMMARY:F1 Practice 1 — Barcelona Grand Prix
+LOCATION:Circuit de Barcelona-Catalunya\, Barcelona\, Spain
+DESCRIPTION:Barcelona Grand Prix Practice 1 @ Circuit de Barcelona-Cataluny
+ a.\nhttps://en.wikipedia.org/wiki/2026_Barcelona-Catalunya
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-7-fp2@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260612T150000Z
+DTEND:20260612T163000Z
+SUMMARY:F1 Practice 2 — Barcelona Grand Prix
+LOCATION:Circuit de Barcelona-Catalunya\, Barcelona\, Spain
+DESCRIPTION:Barcelona Grand Prix Practice 2 @ Circuit de Barcelona-Cataluny
+ a.\nhttps://en.wikipedia.org/wiki/2026_Barcelona-Catalunya
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-7-fp3@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260613T103000Z
+DTEND:20260613T113000Z
+SUMMARY:F1 Practice 3 — Barcelona Grand Prix
+LOCATION:Circuit de Barcelona-Catalunya\, Barcelona\, Spain
+DESCRIPTION:Barcelona Grand Prix Practice 3 @ Circuit de Barcelona-Cataluny
+ a.\nhttps://en.wikipedia.org/wiki/2026_Barcelona-Catalunya
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-7-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260613T140000Z
+DTEND:20260613T150000Z
+SUMMARY:F1 Qualifying — Barcelona Grand Prix
+LOCATION:Circuit de Barcelona-Catalunya\, Barcelona\, Spain
+DESCRIPTION:Barcelona Grand Prix Qualifying @ Circuit de Barcelona-Cataluny
+ a.\nhttps://en.wikipedia.org/wiki/2026_Barcelona-Catalunya
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-7-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260614T130000Z
+DTEND:20260614T150000Z
+SUMMARY:F1 Race — Barcelona Grand Prix
+LOCATION:Circuit de Barcelona-Catalunya\, Barcelona\, Spain
+DESCRIPTION:Barcelona Grand Prix Race @ Circuit de Barcelona-Catalunya.\nht
+ tps://en.wikipedia.org/wiki/2026_Barcelona-Catalunya
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — Barcelona Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-8-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260626T113000Z
+DTEND:20260626T130000Z
+SUMMARY:F1 Practice 1 — Austrian Grand Prix
+LOCATION:Red Bull Ring\, Spielberg\, Austria
+DESCRIPTION:Austrian Grand Prix Practice 1 @ Red Bull Ring.\nhttps://en.wik
+ ipedia.org/wiki/2026_Austrian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-8-fp2@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260626T150000Z
+DTEND:20260626T163000Z
+SUMMARY:F1 Practice 2 — Austrian Grand Prix
+LOCATION:Red Bull Ring\, Spielberg\, Austria
+DESCRIPTION:Austrian Grand Prix Practice 2 @ Red Bull Ring.\nhttps://en.wik
+ ipedia.org/wiki/2026_Austrian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-8-fp3@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260627T103000Z
+DTEND:20260627T113000Z
+SUMMARY:F1 Practice 3 — Austrian Grand Prix
+LOCATION:Red Bull Ring\, Spielberg\, Austria
+DESCRIPTION:Austrian Grand Prix Practice 3 @ Red Bull Ring.\nhttps://en.wik
+ ipedia.org/wiki/2026_Austrian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-8-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260627T140000Z
+DTEND:20260627T150000Z
+SUMMARY:F1 Qualifying — Austrian Grand Prix
+LOCATION:Red Bull Ring\, Spielberg\, Austria
+DESCRIPTION:Austrian Grand Prix Qualifying @ Red Bull Ring.\nhttps://en.wik
+ ipedia.org/wiki/2026_Austrian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-8-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260628T130000Z
+DTEND:20260628T150000Z
+SUMMARY:F1 Race — Austrian Grand Prix
+LOCATION:Red Bull Ring\, Spielberg\, Austria
+DESCRIPTION:Austrian Grand Prix Race @ Red Bull Ring.\nhttps://en.wikipedia
+ .org/wiki/2026_Austrian_Grand_Prix
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — Austrian Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-9-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260703T113000Z
+DTEND:20260703T130000Z
+SUMMARY:F1 Practice 1 — British Grand Prix
+LOCATION:Silverstone Circuit\, Silverstone\, UK
+DESCRIPTION:British Grand Prix Practice 1 @ Silverstone Circuit.\nhttps://e
+ n.wikipedia.org/wiki/2026_British_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-9-sprintQ@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260703T153000Z
+DTEND:20260703T163000Z
+SUMMARY:F1 Sprint Qualifying — British Grand Prix
+LOCATION:Silverstone Circuit\, Silverstone\, UK
+DESCRIPTION:British Grand Prix Sprint Qualifying @ Silverstone Circuit.\nht
+ tps://en.wikipedia.org/wiki/2026_British_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-9-sprint@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260704T110000Z
+DTEND:20260704T120000Z
+SUMMARY:F1 Sprint — British Grand Prix
+LOCATION:Silverstone Circuit\, Silverstone\, UK
+DESCRIPTION:British Grand Prix Sprint @ Silverstone Circuit.\nhttps://en.wi
+ kipedia.org/wiki/2026_British_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-9-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260704T150000Z
+DTEND:20260704T160000Z
+SUMMARY:F1 Qualifying — British Grand Prix
+LOCATION:Silverstone Circuit\, Silverstone\, UK
+DESCRIPTION:British Grand Prix Qualifying @ Silverstone Circuit.\nhttps://e
+ n.wikipedia.org/wiki/2026_British_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-9-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260705T140000Z
+DTEND:20260705T160000Z
+SUMMARY:F1 Race — British Grand Prix
+LOCATION:Silverstone Circuit\, Silverstone\, UK
+DESCRIPTION:British Grand Prix Race @ Silverstone Circuit.\nhttps://en.wiki
+ pedia.org/wiki/2026_British_Grand_Prix
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — British Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260717T113000Z
+DTEND:20260717T130000Z
+SUMMARY:F1 Practice 1 — Belgian Grand Prix
+LOCATION:Circuit de Spa-Francorchamps\, Spa\, Belgium
+DESCRIPTION:Belgian Grand Prix Practice 1 @ Circuit de Spa-Francorchamps.\n
+ https://en.wikipedia.org/wiki/2026_Belgian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-fp2@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260717T150000Z
+DTEND:20260717T163000Z
+SUMMARY:F1 Practice 2 — Belgian Grand Prix
+LOCATION:Circuit de Spa-Francorchamps\, Spa\, Belgium
+DESCRIPTION:Belgian Grand Prix Practice 2 @ Circuit de Spa-Francorchamps.\n
+ https://en.wikipedia.org/wiki/2026_Belgian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-fp3@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260718T103000Z
+DTEND:20260718T113000Z
+SUMMARY:F1 Practice 3 — Belgian Grand Prix
+LOCATION:Circuit de Spa-Francorchamps\, Spa\, Belgium
+DESCRIPTION:Belgian Grand Prix Practice 3 @ Circuit de Spa-Francorchamps.\n
+ https://en.wikipedia.org/wiki/2026_Belgian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260718T140000Z
+DTEND:20260718T150000Z
+SUMMARY:F1 Qualifying — Belgian Grand Prix
+LOCATION:Circuit de Spa-Francorchamps\, Spa\, Belgium
+DESCRIPTION:Belgian Grand Prix Qualifying @ Circuit de Spa-Francorchamps.\n
+ https://en.wikipedia.org/wiki/2026_Belgian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260719T130000Z
+DTEND:20260719T150000Z
+SUMMARY:F1 Race — Belgian Grand Prix
+LOCATION:Circuit de Spa-Francorchamps\, Spa\, Belgium
+DESCRIPTION:Belgian Grand Prix Race @ Circuit de Spa-Francorchamps.\nhttps:
+ //en.wikipedia.org/wiki/2026_Belgian_Grand_Prix
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — Belgian Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260724T113000Z
+DTEND:20260724T130000Z
+SUMMARY:F1 Practice 1 — Hungarian Grand Prix
+LOCATION:Hungaroring\, Budapest\, Hungary
+DESCRIPTION:Hungarian Grand Prix Practice 1 @ Hungaroring.\nhttps://en.wiki
+ pedia.org/wiki/2026_Hungarian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-fp2@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260724T150000Z
+DTEND:20260724T163000Z
+SUMMARY:F1 Practice 2 — Hungarian Grand Prix
+LOCATION:Hungaroring\, Budapest\, Hungary
+DESCRIPTION:Hungarian Grand Prix Practice 2 @ Hungaroring.\nhttps://en.wiki
+ pedia.org/wiki/2026_Hungarian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-fp3@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260725T103000Z
+DTEND:20260725T113000Z
+SUMMARY:F1 Practice 3 — Hungarian Grand Prix
+LOCATION:Hungaroring\, Budapest\, Hungary
+DESCRIPTION:Hungarian Grand Prix Practice 3 @ Hungaroring.\nhttps://en.wiki
+ pedia.org/wiki/2026_Hungarian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260725T140000Z
+DTEND:20260725T150000Z
+SUMMARY:F1 Qualifying — Hungarian Grand Prix
+LOCATION:Hungaroring\, Budapest\, Hungary
+DESCRIPTION:Hungarian Grand Prix Qualifying @ Hungaroring.\nhttps://en.wiki
+ pedia.org/wiki/2026_Hungarian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260726T130000Z
+DTEND:20260726T150000Z
+SUMMARY:F1 Race — Hungarian Grand Prix
+LOCATION:Hungaroring\, Budapest\, Hungary
+DESCRIPTION:Hungarian Grand Prix Race @ Hungaroring.\nhttps://en.wikipedia.
+ org/wiki/2026_Hungarian_Grand_Prix
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — Hungarian Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260821T103000Z
+DTEND:20260821T120000Z
+SUMMARY:F1 Practice 1 — Dutch Grand Prix
+LOCATION:Circuit Park Zandvoort\, Zandvoort\, Netherlands
+DESCRIPTION:Dutch Grand Prix Practice 1 @ Circuit Park Zandvoort.\nhttps://
+ en.wikipedia.org/wiki/2026_Dutch_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-sprintQ@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260821T143000Z
+DTEND:20260821T153000Z
+SUMMARY:F1 Sprint Qualifying — Dutch Grand Prix
+LOCATION:Circuit Park Zandvoort\, Zandvoort\, Netherlands
+DESCRIPTION:Dutch Grand Prix Sprint Qualifying @ Circuit Park Zandvoort.\nh
+ ttps://en.wikipedia.org/wiki/2026_Dutch_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-sprint@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260822T100000Z
+DTEND:20260822T110000Z
+SUMMARY:F1 Sprint — Dutch Grand Prix
+LOCATION:Circuit Park Zandvoort\, Zandvoort\, Netherlands
+DESCRIPTION:Dutch Grand Prix Sprint @ Circuit Park Zandvoort.\nhttps://en.w
+ ikipedia.org/wiki/2026_Dutch_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260822T140000Z
+DTEND:20260822T150000Z
+SUMMARY:F1 Qualifying — Dutch Grand Prix
+LOCATION:Circuit Park Zandvoort\, Zandvoort\, Netherlands
+DESCRIPTION:Dutch Grand Prix Qualifying @ Circuit Park Zandvoort.\nhttps://
+ en.wikipedia.org/wiki/2026_Dutch_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260823T130000Z
+DTEND:20260823T150000Z
+SUMMARY:F1 Race — Dutch Grand Prix
+LOCATION:Circuit Park Zandvoort\, Zandvoort\, Netherlands
+DESCRIPTION:Dutch Grand Prix Race @ Circuit Park Zandvoort.\nhttps://en.wik
+ ipedia.org/wiki/2026_Dutch_Grand_Prix
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — Dutch Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-13-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260904T103000Z
+DTEND:20260904T120000Z
+SUMMARY:F1 Practice 1 — Italian Grand Prix
+LOCATION:Autodromo Nazionale di Monza\, Monza\, Italy
+DESCRIPTION:Italian Grand Prix Practice 1 @ Autodromo Nazionale di Monza.\n
+ https://en.wikipedia.org/wiki/2026_Italian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-13-fp2@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260904T140000Z
+DTEND:20260904T153000Z
+SUMMARY:F1 Practice 2 — Italian Grand Prix
+LOCATION:Autodromo Nazionale di Monza\, Monza\, Italy
+DESCRIPTION:Italian Grand Prix Practice 2 @ Autodromo Nazionale di Monza.\n
+ https://en.wikipedia.org/wiki/2026_Italian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-13-fp3@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260905T103000Z
+DTEND:20260905T113000Z
+SUMMARY:F1 Practice 3 — Italian Grand Prix
+LOCATION:Autodromo Nazionale di Monza\, Monza\, Italy
+DESCRIPTION:Italian Grand Prix Practice 3 @ Autodromo Nazionale di Monza.\n
+ https://en.wikipedia.org/wiki/2026_Italian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-13-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260905T140000Z
+DTEND:20260905T150000Z
+SUMMARY:F1 Qualifying — Italian Grand Prix
+LOCATION:Autodromo Nazionale di Monza\, Monza\, Italy
+DESCRIPTION:Italian Grand Prix Qualifying @ Autodromo Nazionale di Monza.\n
+ https://en.wikipedia.org/wiki/2026_Italian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-13-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260906T130000Z
+DTEND:20260906T150000Z
+SUMMARY:F1 Race — Italian Grand Prix
+LOCATION:Autodromo Nazionale di Monza\, Monza\, Italy
+DESCRIPTION:Italian Grand Prix Race @ Autodromo Nazionale di Monza.\nhttps:
+ //en.wikipedia.org/wiki/2026_Italian_Grand_Prix
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — Italian Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-14-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260911T113000Z
+DTEND:20260911T130000Z
+SUMMARY:F1 Practice 1 — Spanish Grand Prix
+LOCATION:Madring\, Madrid\, Spain
+DESCRIPTION:Spanish Grand Prix Practice 1 @ Madring.\nhttps://en.wikipedia.
+ org/wiki/2026_Spanish_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-14-fp2@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260911T150000Z
+DTEND:20260911T163000Z
+SUMMARY:F1 Practice 2 — Spanish Grand Prix
+LOCATION:Madring\, Madrid\, Spain
+DESCRIPTION:Spanish Grand Prix Practice 2 @ Madring.\nhttps://en.wikipedia.
+ org/wiki/2026_Spanish_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-14-fp3@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260912T103000Z
+DTEND:20260912T113000Z
+SUMMARY:F1 Practice 3 — Spanish Grand Prix
+LOCATION:Madring\, Madrid\, Spain
+DESCRIPTION:Spanish Grand Prix Practice 3 @ Madring.\nhttps://en.wikipedia.
+ org/wiki/2026_Spanish_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-14-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260912T140000Z
+DTEND:20260912T150000Z
+SUMMARY:F1 Qualifying — Spanish Grand Prix
+LOCATION:Madring\, Madrid\, Spain
+DESCRIPTION:Spanish Grand Prix Qualifying @ Madring.\nhttps://en.wikipedia.
+ org/wiki/2026_Spanish_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-14-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260913T130000Z
+DTEND:20260913T150000Z
+SUMMARY:F1 Race — Spanish Grand Prix
+LOCATION:Madring\, Madrid\, Spain
+DESCRIPTION:Spanish Grand Prix Race @ Madring.\nhttps://en.wikipedia.org/wi
+ ki/2026_Spanish_Grand_Prix
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — Spanish Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-15-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260924T083000Z
+DTEND:20260924T100000Z
+SUMMARY:F1 Practice 1 — Azerbaijan Grand Prix
+LOCATION:Baku City Circuit\, Baku\, Azerbaijan
+DESCRIPTION:Azerbaijan Grand Prix Practice 1 @ Baku City Circuit.\nhttps://
+ en.wikipedia.org/wiki/2026_Azerbaijan_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-15-fp2@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260924T120000Z
+DTEND:20260924T133000Z
+SUMMARY:F1 Practice 2 — Azerbaijan Grand Prix
+LOCATION:Baku City Circuit\, Baku\, Azerbaijan
+DESCRIPTION:Azerbaijan Grand Prix Practice 2 @ Baku City Circuit.\nhttps://
+ en.wikipedia.org/wiki/2026_Azerbaijan_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-15-fp3@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260925T083000Z
+DTEND:20260925T093000Z
+SUMMARY:F1 Practice 3 — Azerbaijan Grand Prix
+LOCATION:Baku City Circuit\, Baku\, Azerbaijan
+DESCRIPTION:Azerbaijan Grand Prix Practice 3 @ Baku City Circuit.\nhttps://
+ en.wikipedia.org/wiki/2026_Azerbaijan_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-15-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260925T120000Z
+DTEND:20260925T130000Z
+SUMMARY:F1 Qualifying — Azerbaijan Grand Prix
+LOCATION:Baku City Circuit\, Baku\, Azerbaijan
+DESCRIPTION:Azerbaijan Grand Prix Qualifying @ Baku City Circuit.\nhttps://
+ en.wikipedia.org/wiki/2026_Azerbaijan_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-15-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20260926T110000Z
+DTEND:20260926T130000Z
+SUMMARY:F1 Race — Azerbaijan Grand Prix
+LOCATION:Baku City Circuit\, Baku\, Azerbaijan
+DESCRIPTION:Azerbaijan Grand Prix Race @ Baku City Circuit.\nhttps://en.wik
+ ipedia.org/wiki/2026_Azerbaijan_Grand_Prix
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — Azerbaijan Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-16-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261009T083000Z
+DTEND:20261009T100000Z
+SUMMARY:F1 Practice 1 — Singapore Grand Prix
+LOCATION:Marina Bay Street Circuit\, Marina Bay\, Singapore
+DESCRIPTION:Singapore Grand Prix Practice 1 @ Marina Bay Street Circuit.\nh
+ ttps://en.wikipedia.org/wiki/2026_Singapore_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-16-sprintQ@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261009T123000Z
+DTEND:20261009T133000Z
+SUMMARY:F1 Sprint Qualifying — Singapore Grand Prix
+LOCATION:Marina Bay Street Circuit\, Marina Bay\, Singapore
+DESCRIPTION:Singapore Grand Prix Sprint Qualifying @ Marina Bay Street Circ
+ uit.\nhttps://en.wikipedia.org/wiki/2026_Singapore_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-16-sprint@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261010T090000Z
+DTEND:20261010T100000Z
+SUMMARY:F1 Sprint — Singapore Grand Prix
+LOCATION:Marina Bay Street Circuit\, Marina Bay\, Singapore
+DESCRIPTION:Singapore Grand Prix Sprint @ Marina Bay Street Circuit.\nhttps
+ ://en.wikipedia.org/wiki/2026_Singapore_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-16-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261010T130000Z
+DTEND:20261010T140000Z
+SUMMARY:F1 Qualifying — Singapore Grand Prix
+LOCATION:Marina Bay Street Circuit\, Marina Bay\, Singapore
+DESCRIPTION:Singapore Grand Prix Qualifying @ Marina Bay Street Circuit.\nh
+ ttps://en.wikipedia.org/wiki/2026_Singapore_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-16-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261011T120000Z
+DTEND:20261011T140000Z
+SUMMARY:F1 Race — Singapore Grand Prix
+LOCATION:Marina Bay Street Circuit\, Marina Bay\, Singapore
+DESCRIPTION:Singapore Grand Prix Race @ Marina Bay Street Circuit.\nhttps:/
+ /en.wikipedia.org/wiki/2026_Singapore_Grand_Prix
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — Singapore Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-17-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261023T173000Z
+DTEND:20261023T190000Z
+SUMMARY:F1 Practice 1 — United States Grand Prix
+LOCATION:Circuit of the Americas\, Austin\, USA
+DESCRIPTION:United States Grand Prix Practice 1 @ Circuit of the Americas.\
+ nhttps://en.wikipedia.org/wiki/2026_United_States_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-17-fp2@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261023T210000Z
+DTEND:20261023T223000Z
+SUMMARY:F1 Practice 2 — United States Grand Prix
+LOCATION:Circuit of the Americas\, Austin\, USA
+DESCRIPTION:United States Grand Prix Practice 2 @ Circuit of the Americas.\
+ nhttps://en.wikipedia.org/wiki/2026_United_States_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-17-fp3@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261024T173000Z
+DTEND:20261024T183000Z
+SUMMARY:F1 Practice 3 — United States Grand Prix
+LOCATION:Circuit of the Americas\, Austin\, USA
+DESCRIPTION:United States Grand Prix Practice 3 @ Circuit of the Americas.\
+ nhttps://en.wikipedia.org/wiki/2026_United_States_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-17-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261024T210000Z
+DTEND:20261024T220000Z
+SUMMARY:F1 Qualifying — United States Grand Prix
+LOCATION:Circuit of the Americas\, Austin\, USA
+DESCRIPTION:United States Grand Prix Qualifying @ Circuit of the Americas.\
+ nhttps://en.wikipedia.org/wiki/2026_United_States_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-17-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261025T200000Z
+DTEND:20261025T220000Z
+SUMMARY:F1 Race — United States Grand Prix
+LOCATION:Circuit of the Americas\, Austin\, USA
+DESCRIPTION:United States Grand Prix Race @ Circuit of the Americas.\nhttps
+ ://en.wikipedia.org/wiki/2026_United_States_Grand_Prix
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — United States Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-18-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261030T183000Z
+DTEND:20261030T200000Z
+SUMMARY:F1 Practice 1 — Mexico City Grand Prix
+LOCATION:Autódromo Hermanos Rodríguez\, Mexico City\, Mexico
+DESCRIPTION:Mexico City Grand Prix Practice 1 @ Autódromo Hermanos Rodríg
+ uez.\nhttps://en.wikipedia.org/wiki/2026_Mexico_City_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-18-fp2@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261030T220000Z
+DTEND:20261030T233000Z
+SUMMARY:F1 Practice 2 — Mexico City Grand Prix
+LOCATION:Autódromo Hermanos Rodríguez\, Mexico City\, Mexico
+DESCRIPTION:Mexico City Grand Prix Practice 2 @ Autódromo Hermanos Rodríg
+ uez.\nhttps://en.wikipedia.org/wiki/2026_Mexico_City_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-18-fp3@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261031T173000Z
+DTEND:20261031T183000Z
+SUMMARY:F1 Practice 3 — Mexico City Grand Prix
+LOCATION:Autódromo Hermanos Rodríguez\, Mexico City\, Mexico
+DESCRIPTION:Mexico City Grand Prix Practice 3 @ Autódromo Hermanos Rodríg
+ uez.\nhttps://en.wikipedia.org/wiki/2026_Mexico_City_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-18-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261031T210000Z
+DTEND:20261031T220000Z
+SUMMARY:F1 Qualifying — Mexico City Grand Prix
+LOCATION:Autódromo Hermanos Rodríguez\, Mexico City\, Mexico
+DESCRIPTION:Mexico City Grand Prix Qualifying @ Autódromo Hermanos Rodríg
+ uez.\nhttps://en.wikipedia.org/wiki/2026_Mexico_City_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-18-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261101T200000Z
+DTEND:20261101T220000Z
+SUMMARY:F1 Race — Mexico City Grand Prix
+LOCATION:Autódromo Hermanos Rodríguez\, Mexico City\, Mexico
+DESCRIPTION:Mexico City Grand Prix Race @ Autódromo Hermanos Rodríguez.\n
+ https://en.wikipedia.org/wiki/2026_Mexico_City_Grand_Prix
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — Mexico City Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-19-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261106T153000Z
+DTEND:20261106T170000Z
+SUMMARY:F1 Practice 1 — Brazilian Grand Prix
+LOCATION:Autódromo José Carlos Pace\, São Paulo\, Brazil
+DESCRIPTION:Brazilian Grand Prix Practice 1 @ Autódromo José Carlos Pace.
+ \nhttps://en.wikipedia.org/wiki/2026_Brazilian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-19-fp2@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261106T190000Z
+DTEND:20261106T203000Z
+SUMMARY:F1 Practice 2 — Brazilian Grand Prix
+LOCATION:Autódromo José Carlos Pace\, São Paulo\, Brazil
+DESCRIPTION:Brazilian Grand Prix Practice 2 @ Autódromo José Carlos Pace.
+ \nhttps://en.wikipedia.org/wiki/2026_Brazilian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-19-fp3@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261107T143000Z
+DTEND:20261107T153000Z
+SUMMARY:F1 Practice 3 — Brazilian Grand Prix
+LOCATION:Autódromo José Carlos Pace\, São Paulo\, Brazil
+DESCRIPTION:Brazilian Grand Prix Practice 3 @ Autódromo José Carlos Pace.
+ \nhttps://en.wikipedia.org/wiki/2026_Brazilian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-19-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261107T180000Z
+DTEND:20261107T190000Z
+SUMMARY:F1 Qualifying — Brazilian Grand Prix
+LOCATION:Autódromo José Carlos Pace\, São Paulo\, Brazil
+DESCRIPTION:Brazilian Grand Prix Qualifying @ Autódromo José Carlos Pace.
+ \nhttps://en.wikipedia.org/wiki/2026_Brazilian_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-19-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261108T170000Z
+DTEND:20261108T190000Z
+SUMMARY:F1 Race — Brazilian Grand Prix
+LOCATION:Autódromo José Carlos Pace\, São Paulo\, Brazil
+DESCRIPTION:Brazilian Grand Prix Race @ Autódromo José Carlos Pace.\nhttp
+ s://en.wikipedia.org/wiki/2026_Brazilian_Grand_Prix
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — Brazilian Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-20-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261120T003000Z
+DTEND:20261120T020000Z
+SUMMARY:F1 Practice 1 — Las Vegas Grand Prix
+LOCATION:Las Vegas Strip Street Circuit\, Las Vegas\, USA
+DESCRIPTION:Las Vegas Grand Prix Practice 1 @ Las Vegas Strip Street Circui
+ t.\nhttps://en.wikipedia.org/wiki/2026_Las_Vegas_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-20-fp2@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261120T040000Z
+DTEND:20261120T053000Z
+SUMMARY:F1 Practice 2 — Las Vegas Grand Prix
+LOCATION:Las Vegas Strip Street Circuit\, Las Vegas\, USA
+DESCRIPTION:Las Vegas Grand Prix Practice 2 @ Las Vegas Strip Street Circui
+ t.\nhttps://en.wikipedia.org/wiki/2026_Las_Vegas_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-20-fp3@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261121T003000Z
+DTEND:20261121T013000Z
+SUMMARY:F1 Practice 3 — Las Vegas Grand Prix
+LOCATION:Las Vegas Strip Street Circuit\, Las Vegas\, USA
+DESCRIPTION:Las Vegas Grand Prix Practice 3 @ Las Vegas Strip Street Circui
+ t.\nhttps://en.wikipedia.org/wiki/2026_Las_Vegas_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-20-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261121T040000Z
+DTEND:20261121T050000Z
+SUMMARY:F1 Qualifying — Las Vegas Grand Prix
+LOCATION:Las Vegas Strip Street Circuit\, Las Vegas\, USA
+DESCRIPTION:Las Vegas Grand Prix Qualifying @ Las Vegas Strip Street Circui
+ t.\nhttps://en.wikipedia.org/wiki/2026_Las_Vegas_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-20-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261122T040000Z
+DTEND:20261122T060000Z
+SUMMARY:F1 Race — Las Vegas Grand Prix
+LOCATION:Las Vegas Strip Street Circuit\, Las Vegas\, USA
+DESCRIPTION:Las Vegas Grand Prix Race @ Las Vegas Strip Street Circuit.\nht
+ tps://en.wikipedia.org/wiki/2026_Las_Vegas_Grand_Prix
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — Las Vegas Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-21-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261127T133000Z
+DTEND:20261127T150000Z
+SUMMARY:F1 Practice 1 — Qatar Grand Prix
+LOCATION:Losail International Circuit\, Lusail\, Qatar
+DESCRIPTION:Qatar Grand Prix Practice 1 @ Losail International Circuit.\nht
+ tps://en.wikipedia.org/wiki/2026_Qatar_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-21-fp2@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261127T170000Z
+DTEND:20261127T183000Z
+SUMMARY:F1 Practice 2 — Qatar Grand Prix
+LOCATION:Losail International Circuit\, Lusail\, Qatar
+DESCRIPTION:Qatar Grand Prix Practice 2 @ Losail International Circuit.\nht
+ tps://en.wikipedia.org/wiki/2026_Qatar_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-21-fp3@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261128T143000Z
+DTEND:20261128T153000Z
+SUMMARY:F1 Practice 3 — Qatar Grand Prix
+LOCATION:Losail International Circuit\, Lusail\, Qatar
+DESCRIPTION:Qatar Grand Prix Practice 3 @ Losail International Circuit.\nht
+ tps://en.wikipedia.org/wiki/2026_Qatar_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-21-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261128T180000Z
+DTEND:20261128T190000Z
+SUMMARY:F1 Qualifying — Qatar Grand Prix
+LOCATION:Losail International Circuit\, Lusail\, Qatar
+DESCRIPTION:Qatar Grand Prix Qualifying @ Losail International Circuit.\nht
+ tps://en.wikipedia.org/wiki/2026_Qatar_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-21-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261129T160000Z
+DTEND:20261129T180000Z
+SUMMARY:F1 Race — Qatar Grand Prix
+LOCATION:Losail International Circuit\, Lusail\, Qatar
+DESCRIPTION:Qatar Grand Prix Race @ Losail International Circuit.\nhttps://
+ en.wikipedia.org/wiki/2026_Qatar_Grand_Prix
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — Qatar Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-22-fp1@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261204T093000Z
+DTEND:20261204T110000Z
+SUMMARY:F1 Practice 1 — Abu Dhabi Grand Prix
+LOCATION:Yas Marina Circuit\, Abu Dhabi\, UAE
+DESCRIPTION:Abu Dhabi Grand Prix Practice 1 @ Yas Marina Circuit.\nhttps://
+ en.wikipedia.org/wiki/2026_Abu_Dhabi_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-22-fp2@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261204T130000Z
+DTEND:20261204T143000Z
+SUMMARY:F1 Practice 2 — Abu Dhabi Grand Prix
+LOCATION:Yas Marina Circuit\, Abu Dhabi\, UAE
+DESCRIPTION:Abu Dhabi Grand Prix Practice 2 @ Yas Marina Circuit.\nhttps://
+ en.wikipedia.org/wiki/2026_Abu_Dhabi_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-22-fp3@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261205T103000Z
+DTEND:20261205T113000Z
+SUMMARY:F1 Practice 3 — Abu Dhabi Grand Prix
+LOCATION:Yas Marina Circuit\, Abu Dhabi\, UAE
+DESCRIPTION:Abu Dhabi Grand Prix Practice 3 @ Yas Marina Circuit.\nhttps://
+ en.wikipedia.org/wiki/2026_Abu_Dhabi_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-22-qualifying@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261205T140000Z
+DTEND:20261205T150000Z
+SUMMARY:F1 Qualifying — Abu Dhabi Grand Prix
+LOCATION:Yas Marina Circuit\, Abu Dhabi\, UAE
+DESCRIPTION:Abu Dhabi Grand Prix Qualifying @ Yas Marina Circuit.\nhttps://
+ en.wikipedia.org/wiki/2026_Abu_Dhabi_Grand_Prix
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-22-race@when-is-f1
+DTSTAMP:20260630T155725Z
+DTSTART:20261206T130000Z
+DTEND:20261206T150000Z
+SUMMARY:F1 Race — Abu Dhabi Grand Prix
+LOCATION:Yas Marina Circuit\, Abu Dhabi\, UAE
+DESCRIPTION:Abu Dhabi Grand Prix Race @ Yas Marina Circuit.\nhttps://en.wik
+ ipedia.org/wiki/2026_Abu_Dhabi_Grand_Prix
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:F1 Race — Abu Dhabi Grand Prix
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+END:VCALENDAR
