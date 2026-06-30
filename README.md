@@ -15,7 +15,8 @@ A small static site that shows upcoming Formula 1 sessions in your local time an
 - **Circuit facts** (length, laps, lap record) and a **race-weekend weather forecast** (Open-Meteo) per round.
 - **Recent winners** at each circuit, loaded on demand.
 - **Live timing** during a session (leaderboard, gaps, track status flag, track weather, team radio) via OpenF1 — degrades gracefully when nothing is live.
-- Search/filter rounds, **favorites** (pin to top + filter), **follow a driver or team**, **race-only vs full-weekend** view, and a **season selector** (past seasons too).
+- Search/filter rounds, **favorites** (pin to top + filter), **follow a driver or team**, **race-only vs full-weekend** view, and a **season selector**. Pick a **past season** to browse all its races with **results** — winner on each card plus an expandable full classification — and that season's final standings.
+- A **GitHub link** in the top bar to the source repository.
 - One-click add to Google Calendar, or download an `.ics` for the race or the full weekend — with **calendar reminders (VALARM)** baked in and a configurable default.
 - **Reminders** via the Notification API (Notification Triggers where supported, with a tab-open fallback).
 - **Shareable deep links** (`?round=N`), URL-encoded state, and an **embeddable mode** (`?embed=1`).

@@ -1,6 +1,7 @@
 import { initTheme } from './lib/theme.js';
 import {
-  fetchSchedule, fetchStandings, fetchLastResult, fetchCircuitWinners, remainingCounts,
+  fetchSchedule, fetchStandings, fetchLastResult, fetchCircuitWinners,
+  fetchRaceResult, fetchSeasonWinners, remainingCounts,
 } from './lib/api.js';
 import { formatInZone, relativeDays, relativeTime, sessionLabel, detectIOS, formatCountdown } from './lib/format.js';
 import { downloadIcs } from './lib/ics.js';
@@ -15,7 +16,7 @@ import {
 } from './lib/i18n.js';
 import { sessionState, sessionEnd, nextSession, SESSION_DURATIONS_MIN } from './lib/sessions.js';
 import {
-  computeTitleMath, renderTitleBanner, renderStandingsTable, renderLastResult,
+  computeTitleMath, renderTitleBanner, renderStandingsTable, renderLastResult, renderRaceResult,
 } from './lib/panels.js';
 import { fetchWeather, weatherEmoji, withinForecastHorizon } from './lib/weather.js';
 import { refreshLivePanel } from './lib/live-ui.js';
@@ -58,7 +59,10 @@ const state = {
   standings: null,
   lastResult: null,
   lastResultLoaded: false,
+  seasonWinners: null,
 };
+
+const isPastSeason = () => state.selectedYear < CURRENT_YEAR;
 
 const els = {};
 function cache(id) { return document.getElementById(id); }
@@ -302,6 +306,8 @@ function followedStanding() {
 
 // ---------- Hero ----------
 function renderHero() {
+  // Past seasons have no "next session" — hide the hero entirely.
+  if (isPastSeason()) { els.hero.hidden = true; stopLive(); return; }
   const next = nextSession(state.schedule);
   els.hero.hidden = false;
   clear(els.hero);
@@ -375,7 +381,8 @@ function startTick() {
 
 // ---------- Events ----------
 function filteredRaces() {
-  let races = state.schedule.slice();
+  // Past seasons: show every race (they're all "done"). Otherwise: upcoming.
+  let races = (isPastSeason() ? state.allRaces : state.schedule).slice();
   const q = state.search.trim().toLowerCase();
   if (q) {
     races = races.filter(r =>
@@ -405,12 +412,15 @@ function renderProgress() {
 }
 
 function renderEvents() {
-  if (!state.schedule.length) { showStatus(t('status.empty')); return; }
+  const source = isPastSeason() ? state.allRaces : state.schedule;
+  if (!source.length) { showStatus(t('status.empty')); return; }
   const races = filteredRaces();
   clear(els.events);
   els.events.classList.add('events');
-  const prog = renderProgress();
-  if (prog && state.selectedYear === state.season) els.events.appendChild(prog);
+  if (!isPastSeason()) {
+    const prog = renderProgress();
+    if (prog && state.selectedYear === state.season) els.events.appendChild(prog);
+  }
   if (!races.length) {
     els.events.appendChild(el('p', { class: 'status', text: t('status.noFilter') }));
     return;
@@ -451,12 +461,44 @@ function renderRace(race) {
   // Sessions
   card.appendChild(buildSessions(race));
 
+  // Past-season result (winner + expandable full classification)
+  if (isPastSeason()) card.appendChild(buildResult(race));
+
   // External services (maps, video, discussion, travel, wikipedia)
   card.appendChild(buildExtras(race));
 
   // Actions
   attachActions(card, race);
   return card;
+}
+
+function buildResult(race) {
+  const wrap = el('div', { class: 'result' });
+  const w = state.seasonWinners?.[race.round];
+  if (w) {
+    wrap.appendChild(el('p', { class: 'result__winner' }, [
+      el('span', { attrs: { 'aria-hidden': 'true' }, text: '🏆 ' }),
+      el('b', { text: t('result.winner') + ': ' }),
+      `${w.driver}${w.team ? ' — ' + w.team : ''}`,
+    ]));
+  }
+  const details = el('details', { class: 'result__details' });
+  details.appendChild(el('summary', { text: t('result.label') }));
+  let loaded = false;
+  details.addEventListener('toggle', async () => {
+    if (!details.open || loaded) return;
+    loaded = true;
+    const body = el('div', { class: 'result__body', text: '…' });
+    details.appendChild(body);
+    try {
+      const res = await fetchRaceResult(state.selectedYear, race.round);
+      clear(body);
+      if (!res) { body.textContent = t('last.error'); return; }
+      renderRaceResult(body, res);
+    } catch { body.textContent = t('last.error'); }
+  });
+  wrap.appendChild(details);
+  return wrap;
 }
 
 function linkChip(icon, label, href) {
@@ -856,6 +898,15 @@ async function loadLastResult() {
   }
 }
 
+async function loadSeasonWinners() {
+  state.seasonWinners = null;
+  if (!isPastSeason()) return;
+  try {
+    state.seasonWinners = await fetchSeasonWinners(state.selectedYear);
+    renderEvents(); // re-render so each card shows its winner line
+  } catch {}
+}
+
 // ---------- Re-render orchestration ----------
 function renderAllDynamic() {
   renderHero();
@@ -879,6 +930,7 @@ async function reloadSeason() {
     renderAllDynamic();
     loadStandings();
     loadLastResult();
+    loadSeasonWinners();
   } catch (err) {
     showStatus(t('status.error', { msg: err.message }), true);
   }
@@ -1080,6 +1132,7 @@ async function init() {
     startTick();
     loadStandings();
     loadLastResult();
+    loadSeasonWinners();
     if (urlRound) scrollToRound(urlRound);
   } catch (err) {
     console.error(err);
