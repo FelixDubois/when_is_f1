@@ -22,6 +22,13 @@ import { refreshLivePanel } from './lib/live-ui.js';
 import {
   ensurePermission, scheduleReminder, rearmReminders, permissionState, notificationsSupported,
 } from './lib/reminders.js';
+import { fetchWikiSummary } from './lib/wikipedia.js';
+import { detectCountryByIp } from './lib/geo.js';
+import { getWebhook, setWebhook, isValidWebhook, postToDiscord } from './lib/discord.js';
+import {
+  osmMapUrl, directionsUrl, youtubeSearchUrl, redditSearchUrl,
+  flightsUrl, bookingUrl, airbnbUrl, outlookUrl, webcalUrl,
+} from './lib/external.js';
 
 const STORAGE_COUNTRY = 'wif:country';
 const STORAGE_ZONE = 'wif:tz';
@@ -446,9 +453,78 @@ function renderRace(race) {
   // Sessions
   card.appendChild(buildSessions(race));
 
+  // External services (maps, video, discussion, travel, wikipedia)
+  card.appendChild(buildExtras(race));
+
   // Actions
   attachActions(card, race);
   return card;
+}
+
+function linkChip(icon, label, href) {
+  return el('a', {
+    class: 'chip-link', href, target: '_blank', rel: 'noopener',
+  }, [el('span', { class: 'chip-link__icon', attrs: { 'aria-hidden': 'true' }, text: icon }), label]);
+}
+
+function buildExtras(race) {
+  const c = race.circuit;
+  const box = el('div', { class: 'extras' });
+
+  const row = el('div', { class: 'extras__links' });
+  if (c.lat != null && c.lon != null) {
+    row.append(
+      linkChip('🗺️', t('links.map'), osmMapUrl(c.lat, c.lon)),
+      linkChip('🧭', t('links.directions'), directionsUrl(c.lat, c.lon)),
+    );
+  }
+  row.append(
+    linkChip('📺', t('links.video'), youtubeSearchUrl(`Formula 1 ${race.season} ${race.name} highlights`)),
+    linkChip('💬', t('links.discuss'), redditSearchUrl(race.name)),
+  );
+  box.appendChild(row);
+
+  box.appendChild(buildTravel(race));
+  if (c.url) box.appendChild(buildWiki(c));
+  return box;
+}
+
+function buildTravel(race) {
+  const c = race.circuit;
+  const city = c.locality ? `${c.locality}, ${c.country}` : (c.country || c.name);
+  const firstSession = race.sessions[0]?.start;
+  const raceSession = race.sessions.find(s => s.kind === 'race')?.start;
+  const checkin = firstSession ? new Date(firstSession.getTime() - 86400000) : null;
+  const checkout = raceSession ? new Date(raceSession.getTime() + 86400000) : null;
+
+  const details = el('details', { class: 'extras__details' }, [
+    el('summary', { text: `✈️ ${t('travel.title')}` }),
+    el('div', { class: 'extras__travel' }, [
+      linkChip('🛫', t('travel.flights'), flightsUrl(city)),
+      linkChip('🏨', t('travel.hotels'), bookingUrl(city, checkin, checkout)),
+      linkChip('🏠', t('travel.stays'), airbnbUrl(city, checkin, checkout)),
+    ]),
+  ]);
+  return details;
+}
+
+function buildWiki(circuit) {
+  const details = el('details', { class: 'extras__details extras__wiki' });
+  details.appendChild(el('summary', { text: `📖 ${t('wiki.about')}` }));
+  let loaded = false;
+  details.addEventListener('toggle', async () => {
+    if (!details.open || loaded) return;
+    loaded = true;
+    const body = el('div', { class: 'wiki__body', text: '…' });
+    details.appendChild(body);
+    const data = await fetchWikiSummary(circuit.url);
+    clear(body);
+    if (!data) { body.textContent = t('wiki.error'); return; }
+    if (data.thumb) body.appendChild(el('img', { class: 'wiki__thumb', src: data.thumb, alt: '', loading: 'lazy' }));
+    body.appendChild(el('p', { class: 'wiki__extract', text: data.extract }));
+    body.appendChild(el('a', { class: 'chip-link', href: data.url, target: '_blank', rel: 'noopener', text: t('wiki.readMore') }));
+  });
+  return details;
 }
 
 function buildFactsRow(race) {
@@ -638,6 +714,15 @@ function attachActions(card, race) {
     text: t('cal.gcal'), attrs: { role: 'menuitem' },
     onClick: () => { popover.hidden = true; },
   }));
+  popover.appendChild(el('a', {
+    class: 'popover__item', href: outlookUrl(buildCalendarEvent(race, raceSession)), target: '_blank', rel: 'noopener',
+    text: t('cal.outlook'), attrs: { role: 'menuitem' },
+    onClick: () => { popover.hidden = true; },
+  }));
+  popover.appendChild(el('button', {
+    class: 'popover__item', type: 'button', text: t('discord.send'), attrs: { role: 'menuitem' },
+    onClick: () => { popover.hidden = true; sendRaceToDiscord(race, raceSession); },
+  }));
   if (notificationsSupported() && permissionState() !== 'denied') {
     popover.appendChild(el('button', {
       class: 'popover__item', type: 'button', text: t('reminder.remindRace'), attrs: { role: 'menuitem' },
@@ -686,6 +771,30 @@ async function remindRace(race, raceSession) {
   } else if (res.reason === 'denied') {
     toast(t('reminder.denied'), { type: 'error' });
   }
+}
+
+async function sendRaceToDiscord(race, raceSession) {
+  if (!isValidWebhook(getWebhook())) { toast(t('discord.invalid'), { type: 'error', timeout: 6000 }); return; }
+  const u = formatInZone(raceSession.start, state.zone, { hour12: state.hour12 });
+  const msg = `🏁 **${race.name}** — ${t('session.race')}\n${u.date}, ${u.time} ${u.zone}\n${race.wikiUrl}`;
+  const res = await postToDiscord(msg);
+  toast(res.ok ? t('discord.sent') : t('discord.error'), { type: res.ok ? 'success' : 'error' });
+}
+
+async function maybeRefineCountryByIp() {
+  let stored = null;
+  try { stored = localStorage.getItem(STORAGE_COUNTRY); } catch {}
+  if (stored) return; // an explicit/stored choice always wins
+  if (new URLSearchParams(location.search).get('tz')) return;
+  const cc = await detectCountryByIp();
+  if (!cc || !COUNTRY_TIMEZONES[cc] || cc === state.countryCode) return;
+  state.countryCode = cc;
+  state.zone = COUNTRY_TIMEZONES[cc][0] || state.zone;
+  countryCombobox?.setValue(cc);
+  syncZonePicker();
+  updateHint();
+  syncUrl();
+  renderAllDynamic();
 }
 
 async function shareRound(round) {
@@ -820,8 +929,16 @@ function wireSettings() {
     syncSegmented(els.settingsTheme, document.documentElement.getAttribute('data-theme'));
     syncSegmented(els.settingsView, state.view);
     els.settingsReminder.value = state.reminderDefault;
+    if (els.settingsDiscord) els.settingsDiscord.value = getWebhook();
     els.settingsDialog.showModal();
   });
+  if (els.settingsDiscord) {
+    els.settingsDiscord.addEventListener('change', () => {
+      const v = els.settingsDiscord.value.trim();
+      if (v && !isValidWebhook(v)) { toast(t('discord.invalid'), { type: 'error', timeout: 6000 }); return; }
+      setWebhook(v);
+    });
+  }
   els.settingsTheme.addEventListener('click', (e) => {
     const btn = e.target.closest('.segmented__option'); if (!btn) return;
     document.documentElement.setAttribute('data-theme', btn.dataset.value);
@@ -907,6 +1024,8 @@ async function init() {
   els.settingsTheme = cache('settings-theme');
   els.settingsView = cache('settings-view');
   els.settingsReminder = cache('settings-reminder');
+  els.settingsDiscord = cache('settings-discord');
+  els.subscribeLink = cache('subscribe-link');
 
   initTheme();
   loadPrefs();
@@ -929,6 +1048,8 @@ async function init() {
   updateHint();
   wireSettings();
   wireSwUpdate();
+  if (els.subscribeLink) els.subscribeLink.href = webcalUrl();
+  maybeRefineCountryByIp();
 
   // Events
   els.formatToggle.addEventListener('click', (e) => {

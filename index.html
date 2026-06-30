@@ -225,9 +225,25 @@
           <option value="1440" data-i18n="reminder.1d">1 day before</option>
         </select>
       </div>
+      <div class="dialog__field">
+        <label class="picker__label" for="settings-discord" data-i18n="discord.label">Discord webhook URL</label>
+        <input type="url" id="settings-discord" class="dialog__input"
+               placeholder="https://discord.com/api/webhooks/…"
+               data-i18n-attr="placeholder:discord.placeholder" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="dialog__field">
+        <a id="subscribe-link" class="btn" href="#" target="_blank" rel="noopener" data-i18n="cal.subscribe">Subscribe to season calendar</a>
+      </div>
     </form>
   </dialog>
 
+  <!--
+    Optional, privacy-friendly analytics (no cookies, no personal data).
+    Pick ONE and uncomment after adding your own site/domain — see README.
+    GoatCounter:  <script data-goatcounter="https://YOURCODE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    Plausible:    <script defer data-domain="YOURDOMAIN" src="https://plausible.io/js/script.js"></script>
+    Umami:        <script defer data-website-id="YOUR-ID" src="https://YOUR-UMAMI/script.js"></script>
+  -->
   <script type="module" src="app.js"></script>
   <script>
     if ('serviceWorker' in navigator) {

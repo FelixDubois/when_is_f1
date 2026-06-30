@@ -1,6 +1,6 @@
 /* When Is F1 — service worker */
 
-const VERSION = 'v3';
+const VERSION = 'v4';
 const SHELL_CACHE = `wif-shell-${VERSION}`;
 const ASSET_CACHE = `wif-assets-${VERSION}`;
 const API_CACHE   = `wif-api-${VERSION}`;
@@ -27,6 +27,10 @@ const SHELL = [
   './lib/live.js',
   './lib/live-ui.js',
   './lib/reminders.js',
+  './lib/external.js',
+  './lib/wikipedia.js',
+  './lib/geo.js',
+  './lib/discord.js',
   './data/countries.js',
   './data/country-timezones.js',
   './data/circuit-timezones.js',

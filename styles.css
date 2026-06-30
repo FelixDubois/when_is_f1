@@ -789,6 +789,30 @@ body {
 .winners__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
 .winners__list b { color: var(--fg-muted); }
 
+/* ---------- External services (links, travel, wikipedia) ---------- */
+.extras { padding: 4px 16px 12px; display: grid; gap: 10px; }
+.extras__links, .extras__travel { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 10px; border-radius: 999px; font-size: 12px;
+  border: 1px solid var(--border); background: var(--bg-sunken); color: var(--fg);
+  min-height: 32px;
+}
+.chip-link:hover { border-color: var(--fg-muted); text-decoration: none; background: var(--bg-elev); }
+.chip-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.chip-link__icon { font-size: 13px; }
+.extras__details > summary {
+  cursor: pointer; font-size: 13px; color: var(--accent); padding: 4px 0; list-style: none;
+}
+.extras__details > summary::-webkit-details-marker { display: none; }
+.extras__travel { margin-top: 8px; }
+.wiki__body { margin-top: 8px; font-size: 13px; display: grid; gap: 8px; }
+.wiki__thumb {
+  float: inline-end; max-width: 120px; height: auto; border-radius: var(--radius-sm);
+  margin-inline-start: 12px; margin-bottom: 6px;
+}
+.wiki__extract { margin: 0; color: var(--fg); line-height: 1.55; }
+
 /* ---------- Progress ---------- */
 .progress { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
 .progress__bar { flex: 1 1 auto; height: 6px; background: var(--bg-sunken); border-radius: 999px; overflow: hidden; }
@@ -831,10 +855,13 @@ body {
 .dialog__head { display: flex; align-items: center; justify-content: space-between; }
 .dialog__title { margin: 0; font-size: 18px; }
 .dialog__field { display: grid; gap: 6px; }
-.dialog__field select {
+.dialog__field select,
+.dialog__input {
   font: inherit; padding: 10px 12px; border-radius: var(--radius-sm);
   border: 1px solid var(--border); background: var(--bg); color: var(--fg); min-height: 44px;
 }
+.dialog__input { width: 100%; }
+.dialog__input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
 /* ---------- Toasts ---------- */
 .toast-host {
