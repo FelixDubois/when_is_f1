@@ -429,7 +429,7 @@ function renderEvents() {
 }
 
 function renderRace(race) {
-  const card = el('article', { class: 'event', id: `round-${race.round}` });
+  const card = el('article', { class: 'event' + (isPastSeason() ? ' event--past' : ''), id: `round-${race.round}` });
   const raceSession = race.sessions.find(s => s.kind === 'race');
   const liveSession = race.sessions.find(s => sessionState(s) === 'live');
 
@@ -458,18 +458,31 @@ function renderRace(race) {
   // Map
   card.appendChild(buildMap(race));
 
-  // Sessions
-  card.appendChild(buildSessions(race));
-
-  // Past-season result (winner + expandable full classification)
-  if (isPastSeason()) card.appendChild(buildResult(race));
-
-  // External services (maps, video, discussion, travel, wikipedia)
-  card.appendChild(buildExtras(race));
-
-  // Actions
-  attachActions(card, race);
+  if (isPastSeason()) {
+    // Past race: just the race date, the result (place/time/diff), and links.
+    // No session schedule and no calendar export for a finished race.
+    card.appendChild(buildRaceDate(race));
+    card.appendChild(buildResult(race));
+    card.appendChild(buildExtras(race));
+  } else {
+    card.appendChild(buildSessions(race));
+    card.appendChild(buildExtras(race));
+    attachActions(card, race);
+  }
   return card;
+}
+
+function buildRaceDate(race) {
+  const raceSession = race.sessions.find(s => s.kind === 'race');
+  const wrap = el('div', { class: 'race-date' });
+  if (raceSession) {
+    const d = formatInZone(raceSession.start, race.circuit.tz, { hour12: state.hour12 });
+    wrap.append(
+      el('span', { class: 'race-date__label', text: sessionLabel('race') + ' — ' }),
+      el('span', { class: 'race-date__value', text: `${d.date} ${race.season}` }),
+    );
+  }
+  return wrap;
 }
 
 function buildResult(race) {
