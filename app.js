@@ -25,10 +25,7 @@ import {
 import { fetchWikiSummary } from './lib/wikipedia.js';
 import { detectCountryByIp } from './lib/geo.js';
 import { getWebhook, setWebhook, isValidWebhook, postToDiscord } from './lib/discord.js';
-import {
-  osmMapUrl, directionsUrl, youtubeSearchUrl, redditSearchUrl,
-  flightsUrl, bookingUrl, airbnbUrl, outlookUrl, webcalUrl,
-} from './lib/external.js';
+import { youtubeSearchUrl, redditSearchUrl, outlookUrl, webcalUrl } from './lib/external.js';
 
 const STORAGE_COUNTRY = 'wif:country';
 const STORAGE_ZONE = 'wif:tz';
@@ -264,6 +261,7 @@ function updateHint() {
 }
 
 function syncSegmented(group, value) {
+  if (!group) return;
   for (const btn of group.querySelectorAll('.segmented__option')) {
     btn.setAttribute('aria-pressed', btn.dataset.value === value ? 'true' : 'false');
   }
@@ -471,41 +469,14 @@ function buildExtras(race) {
   const c = race.circuit;
   const box = el('div', { class: 'extras' });
 
-  const row = el('div', { class: 'extras__links' });
-  if (c.lat != null && c.lon != null) {
-    row.append(
-      linkChip('🗺️', t('links.map'), osmMapUrl(c.lat, c.lon)),
-      linkChip('🧭', t('links.directions'), directionsUrl(c.lat, c.lon)),
-    );
-  }
-  row.append(
+  const row = el('div', { class: 'extras__links' }, [
     linkChip('📺', t('links.video'), youtubeSearchUrl(`Formula 1 ${race.season} ${race.name} highlights`)),
     linkChip('💬', t('links.discuss'), redditSearchUrl(race.name)),
-  );
+  ]);
   box.appendChild(row);
 
-  box.appendChild(buildTravel(race));
   if (c.url) box.appendChild(buildWiki(c));
   return box;
-}
-
-function buildTravel(race) {
-  const c = race.circuit;
-  const city = c.locality ? `${c.locality}, ${c.country}` : (c.country || c.name);
-  const firstSession = race.sessions[0]?.start;
-  const raceSession = race.sessions.find(s => s.kind === 'race')?.start;
-  const checkin = firstSession ? new Date(firstSession.getTime() - 86400000) : null;
-  const checkout = raceSession ? new Date(raceSession.getTime() + 86400000) : null;
-
-  const details = el('details', { class: 'extras__details' }, [
-    el('summary', { text: `✈️ ${t('travel.title')}` }),
-    el('div', { class: 'extras__travel' }, [
-      linkChip('🛫', t('travel.flights'), flightsUrl(city)),
-      linkChip('🏨', t('travel.hotels'), bookingUrl(city, checkin, checkout)),
-      linkChip('🏠', t('travel.stays'), airbnbUrl(city, checkin, checkout)),
-    ]),
-  ]);
-  return details;
 }
 
 function buildWiki(circuit) {
