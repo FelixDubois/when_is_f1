@@ -1,6 +1,6 @@
 /* When Is F1 — service worker */
 
-const VERSION = 'v4';
+const VERSION = 'v5';
 const SHELL_CACHE = `wif-shell-${VERSION}`;
 const ASSET_CACHE = `wif-assets-${VERSION}`;
 const API_CACHE   = `wif-api-${VERSION}`;
