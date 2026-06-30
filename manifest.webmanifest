@@ -2,6 +2,8 @@
   "name": "When Is F1",
   "short_name": "When Is F1",
   "description": "Upcoming Formula 1 sessions in your local time, with one-tap calendar export.",
+  "lang": "en",
+  "dir": "auto",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

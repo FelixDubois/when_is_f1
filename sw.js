@@ -1,6 +1,6 @@
 /* When Is F1 — service worker */
 
-const VERSION = 'v2';
+const VERSION = 'v3';
 const SHELL_CACHE = `wif-shell-${VERSION}`;
 const ASSET_CACHE = `wif-assets-${VERSION}`;
 const API_CACHE   = `wif-api-${VERSION}`;
@@ -19,9 +19,18 @@ const SHELL = [
   './lib/ics.js',
   './lib/gcal.js',
   './lib/combobox.js',
+  './lib/dom.js',
+  './lib/i18n.js',
+  './lib/sessions.js',
+  './lib/panels.js',
+  './lib/weather.js',
+  './lib/live.js',
+  './lib/live-ui.js',
+  './lib/reminders.js',
   './data/countries.js',
   './data/country-timezones.js',
   './data/circuit-timezones.js',
+  './data/circuit-facts.js',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',
 ];
@@ -30,10 +39,14 @@ const API_HOST  = 'api.jolpi.ca';
 const FONT_HOSTS = ['fonts.googleapis.com', 'fonts.gstatic.com'];
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(SHELL_CACHE).then((c) => c.addAll(SHELL))
-      .then(() => self.skipWaiting())
-  );
+  // Do NOT skipWaiting here — let the page show an "update available" toast
+  // and activate the new worker only when the user opts in.
+  event.waitUntil(caches.open(SHELL_CACHE).then((c) => c.addAll(SHELL)));
+});
+
+// Page asks the waiting worker to take over (via the update toast).
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
