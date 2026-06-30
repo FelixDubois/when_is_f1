@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/icons/social.png" alt="When Is F1" width="100%">
+  <img src="assets/banner.png" alt="When Is F1 — by Félix Dubois" width="100%">
 </p>
 
 # When Is F1
