@@ -11,7 +11,7 @@ import { COUNTRY_TIMEZONES, TZ_PRIMARY_COUNTRY } from './data/country-timezones.
 import { CIRCUIT_FACTS } from './data/circuit-facts.js';
 import { el, clear, toast } from './lib/dom.js';
 import {
-  t, getLang, setLang, onLangChange, applyTranslations, SUPPORTED, prefers12h,
+  t, getLang, setLang, onLangChange, applyTranslations, SUPPORTED, prefers12h, LANGUAGES,
 } from './lib/i18n.js';
 import { sessionState, sessionEnd, nextSession, SESSION_DURATIONS_MIN } from './lib/sessions.js';
 import {
@@ -185,6 +185,71 @@ function buildSeasonSelect() {
     els.season.appendChild(el('option', { value: String(y), text: String(y) }));
   }
   els.season.value = String(state.selectedYear);
+}
+
+function buildLangDropdown() {
+  const toggle = cache('lang-toggle-btn');
+  const flagEl = cache('lang-flag');
+  const codeEl = cache('lang-code');
+  const list = cache('lang-list');
+
+  clear(list);
+  const optionEls = LANGUAGES.map((L) => {
+    const li = el('li', {
+      class: 'lang-dropdown__option', attrs: { role: 'option', tabindex: '-1' }, dataset: { value: L.code },
+    }, [
+      el('img', { class: 'lang-dropdown__flag', src: `assets/flags/${L.flag}.svg`, alt: '', width: 22, height: 16, loading: 'lazy' }),
+      el('span', { class: 'lang-dropdown__name', text: L.name }),
+    ]);
+    li.addEventListener('click', () => choose(L.code));
+    list.appendChild(li);
+    return li;
+  });
+
+  function syncCurrent() {
+    const code = getLang();
+    const L = LANGUAGES.find(x => x.code === code) || LANGUAGES[0];
+    flagEl.src = `assets/flags/${L.flag}.svg`;
+    codeEl.textContent = L.code.toUpperCase();
+    for (const li of optionEls) li.setAttribute('aria-selected', li.dataset.value === code ? 'true' : 'false');
+  }
+  function open() {
+    list.hidden = false;
+    toggle.setAttribute('aria-expanded', 'true');
+    (optionEls.find(li => li.dataset.value === getLang()) || optionEls[0])?.focus();
+  }
+  function close(focusToggle = false) {
+    list.hidden = true;
+    toggle.setAttribute('aria-expanded', 'false');
+    if (focusToggle) toggle.focus();
+  }
+  function choose(code) { setLang(code); syncUrl(); close(true); }
+  function moveFocus(dir) {
+    const idx = optionEls.findIndex(li => li === document.activeElement);
+    optionEls[(idx + dir + optionEls.length) % optionEls.length]?.focus();
+  }
+
+  toggle.addEventListener('click', (e) => { e.stopPropagation(); if (list.hidden) open(); else close(); });
+  toggle.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+  });
+  list.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); moveFocus(1); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); moveFocus(-1); }
+    else if (e.key === 'Home') { e.preventDefault(); optionEls[0]?.focus(); }
+    else if (e.key === 'End') { e.preventDefault(); optionEls[optionEls.length - 1]?.focus(); }
+    else if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      const li = optionEls.find(x => x === document.activeElement);
+      if (li) choose(li.dataset.value);
+    } else if (e.key === 'Escape') { e.preventDefault(); close(true); }
+    else if (e.key === 'Tab') { close(); }
+  });
+  list.addEventListener('click', (e) => e.stopPropagation());
+  document.addEventListener('click', () => { if (!list.hidden) close(); });
+
+  syncCurrent();
+  onLangChange(syncCurrent);
 }
 
 function updateHint() {
@@ -819,7 +884,6 @@ async function init() {
   els.zoneField = cache('zone-field');
   els.season = cache('season');
   els.formatToggle = cache('format-toggle');
-  els.langToggle = cache('lang-toggle');
   els.viewToggle = cache('view-toggle');
   els.favFilter = cache('fav-filter');
   els.search = cache('search');
@@ -857,9 +921,9 @@ async function init() {
 
   buildCountryCombobox(state.countryCode);
   buildSeasonSelect();
+  buildLangDropdown();
   syncZonePicker();
   syncSegmented(els.formatToggle, state.hour12 ? '12' : '24');
-  syncSegmented(els.langToggle, getLang());
   syncSegmented(els.viewToggle, state.view);
   els.favFilter.setAttribute('aria-pressed', state.favsOnly ? 'true' : 'false');
   updateHint();
@@ -873,10 +937,6 @@ async function init() {
     if (next === state.hour12) return;
     state.hour12 = next; syncSegmented(els.formatToggle, btn.dataset.value);
     persist(); syncUrl(); renderAllDynamic();
-  });
-  els.langToggle.addEventListener('click', (e) => {
-    const btn = e.target.closest('.segmented__option'); if (!btn) return;
-    setLang(btn.dataset.value); syncSegmented(els.langToggle, getLang()); syncUrl();
   });
   els.viewToggle.addEventListener('click', (e) => {
     const btn = e.target.closest('.segmented__option'); if (!btn) return;

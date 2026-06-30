@@ -25,8 +25,11 @@
       try { lang = localStorage.getItem('wif:lang'); } catch (e) {}
       var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
       document.documentElement.setAttribute('data-theme', stored || (prefersDark ? 'dark' : 'light'));
+      var supported = ['en','fr','es','ar','ru','zh'];
       var nav = (navigator.language || 'en').slice(0, 2).toLowerCase();
-      document.documentElement.setAttribute('lang', lang || (nav === 'fr' ? 'fr' : 'en'));
+      var chosen = lang || (supported.indexOf(nav) >= 0 ? nav : 'en');
+      document.documentElement.setAttribute('lang', chosen);
+      document.documentElement.setAttribute('dir', chosen === 'ar' ? 'rtl' : 'ltr');
     })();
   </script>
 </head>
@@ -40,9 +43,18 @@
         <span class="brand__name">When Is F1</span>
       </a>
       <div class="site-header__tools">
-        <div class="segmented segmented--lang" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.language" id="lang-toggle">
-          <button type="button" class="segmented__option" data-value="en" aria-pressed="true">EN</button>
-          <button type="button" class="segmented__option" data-value="fr" aria-pressed="false">FR</button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <button type="button" class="lang-dropdown__toggle" id="lang-toggle-btn"
+                  aria-haspopup="listbox" aria-expanded="false"
+                  aria-label="Language" data-i18n-attr="aria-label:nav.language">
+            <img class="lang-dropdown__flag" id="lang-flag" alt="" width="22" height="16">
+            <span class="lang-dropdown__code" id="lang-code">EN</span>
+            <svg class="lang-dropdown__caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+              <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/>
+            </svg>
+          </button>
+          <ul class="lang-dropdown__list" id="lang-list" role="listbox"
+              aria-label="Language" data-i18n-attr="aria-label:nav.language" hidden></ul>
         </div>
         <button id="settings-btn" class="icon-button" type="button" aria-label="Settings" data-i18n-attr="aria-label:nav.settings">
           <svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">

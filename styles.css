@@ -603,8 +603,41 @@ body {
 
 /* ---------- Header tools ---------- */
 .site-header__tools { display: flex; align-items: center; gap: 6px; }
-.segmented--lang { min-height: 36px; }
-.segmented--lang .segmented__option { padding: 6px 10px; font-size: 13px; }
+
+/* ---------- Language dropdown ---------- */
+.lang-dropdown { position: relative; }
+.lang-dropdown__toggle {
+  display: inline-flex; align-items: center; gap: 6px;
+  min-height: 36px; padding: 5px 8px;
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--bg); color: var(--fg); font: inherit;
+}
+.lang-dropdown__toggle:hover { border-color: var(--fg-muted); }
+.lang-dropdown__toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.lang-dropdown__flag {
+  width: 22px; height: 16px; border-radius: 2px; object-fit: cover;
+  border: 1px solid var(--border); flex-shrink: 0; background: var(--bg-sunken);
+}
+.lang-dropdown__code { font-size: 12px; font-weight: 700; letter-spacing: .5px; }
+.lang-dropdown__caret { color: var(--fg-muted); transition: transform .15s ease; }
+.lang-dropdown__toggle[aria-expanded="true"] .lang-dropdown__caret { transform: rotate(180deg); }
+.lang-dropdown__list {
+  position: absolute; top: calc(100% + 4px);
+  inset-inline-end: 0; z-index: 30; min-width: 180px;
+  list-style: none; margin: 0; padding: 6px;
+  background: var(--bg-elev); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); box-shadow: var(--shadow);
+  display: grid; gap: 2px;
+}
+.lang-dropdown__option {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px; border-radius: 6px; cursor: pointer; font-size: 14px; min-height: 40px;
+}
+.lang-dropdown__option:hover,
+.lang-dropdown__option:focus-visible { background: var(--bg-sunken); outline: none; }
+.lang-dropdown__option[aria-selected="true"] { background: var(--bg-sunken); font-weight: 700; }
+.lang-dropdown__option[aria-selected="true"]::after { content: '✓'; margin-inline-start: auto; color: var(--accent); }
+.lang-dropdown__option .lang-dropdown__flag { width: 24px; height: 18px; }
 
 /* ---------- Hero ---------- */
 .hero { margin: 20px 0 8px; }
