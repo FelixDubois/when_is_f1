@@ -554,6 +554,7 @@ body {
   .event__map { border-right: 1px solid var(--border); border-bottom: 0; }
   .event__sessions-wrap { display: contents; }
   .event__actions { grid-column: 1 / -1; justify-content: flex-end; }
+  .result, .extras { grid-column: 1 / -1; }
   .btn { flex: 0 0 auto; }
   .popover { inset-inline-start: auto; inset-inline-end: 16px; min-width: 220px; }
 }
@@ -788,6 +789,12 @@ body {
 .winners__body { margin-top: 8px; font-size: 13px; }
 .winners__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
 .winners__list b { color: var(--fg-muted); }
+
+/* ---------- Past-season race result ---------- */
+.result { padding: 4px 16px 12px; display: grid; gap: 8px; align-self: start; }
+.result__winner { margin: 0; font-size: 14px; }
+.result__details > summary { cursor: pointer; font-size: 13px; color: var(--accent); padding: 4px 0; }
+.result__body { margin-top: 8px; display: grid; gap: 10px; }
 
 /* ---------- External services (links, travel, wikipedia) ---------- */
 .extras {
