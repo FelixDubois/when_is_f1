@@ -22,6 +22,11 @@ A small static site that shows upcoming Formula 1 sessions in your local time an
 - Light / dark theme, responsive layout, accessible (skip link, keyboard, `prefers-reduced-motion`, `forced-colors`, RTL-ready), no build step.
 - Installable as a PWA — works offline after the first visit, with an "update available" prompt instead of a silent swap.
 - An **auto-updating calendar feed** (`season.ics`) regenerated daily by CI (see `.github/workflows/season-ics.yml`).
+- **External services per round** (all key-less): circuit **map** + **directions** (OpenStreetMap / Google Maps), **highlights** (YouTube), **discussion** (Reddit r/formula1), **trip planning** (flights / Booking / Airbnb with the weekend's dates pre-filled), and a **Wikipedia** circuit summary with thumbnail.
+- **More calendar targets**: Google, Outlook, `.ics`, and a `webcal://` **subscription** to the season feed.
+- **Country auto-detect** refined by IP (ipwho.is), falling back to timezone detection.
+- Optional **Discord reminders** — paste an incoming-webhook URL in Settings and send a race to your server with one tap.
+- Optional, **cookie-free analytics** (GoatCounter / Plausible / Umami) — a ready-to-enable snippet in `index.html` (off by default; add your own site ID).
 
 ## Run locally
 
